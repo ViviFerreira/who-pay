@@ -13,9 +13,9 @@ export const cadastrar = async (values) => {
    }
 };
 
-export const buscar = async (url) => {
+export const buscar = async (url, setDado) => {
    const resp = await api.get(url);
-   return resp.data;
+   setDado(resp.data);
 };
 
 export const editar = (values, id) => {

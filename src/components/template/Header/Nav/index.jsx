@@ -30,7 +30,7 @@ export default () => (
       <Link to="/">
          <i className="bi bi-house"></i> Inicio
       </Link>
-      <Link to="/formulario">
+      <Link to="/despesas">
          <i className="bi bi-wallet2"></i> Despesas
       </Link>
       <Link to="/pagamento">

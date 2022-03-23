@@ -1,5 +1,6 @@
 import Layout from 'components/Layout';
-import FormDespesa from 'components/core/Despesa';
+import FormDespesa from 'components/core/FormDespesa';
+import { ListaDespesa } from 'components/core/ListaDespesas';
 import { ContainerFlex, Title } from './style';
 
 export default function RegistrarDespesa() {
@@ -9,6 +10,7 @@ export default function RegistrarDespesa() {
          <ContainerFlex>
             <FormDespesa />
          </ContainerFlex>
+         <ListaDespesa url="/pagar" />
       </Layout>
    );
 }

@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { colorPrimary } from 'components/IU/variaveis';
 
 export const FormDespesa = styled.form`
-   width: 50vw;
-   height: 50vh;
+   width: 90vw;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -23,7 +22,7 @@ export const FormDespesa = styled.form`
 export const FormContainer = styled.div`
    width: 100%;
    display: grid;
-   grid-template-columns: auto auto auto;
+   grid-template-columns: auto auto auto auto;
 
    @media only screen and (max-width: 764px) {
       grid-template-columns: auto;

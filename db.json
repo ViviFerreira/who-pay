@@ -1,20 +1,21 @@
 {
   "pagar": [
     {
-      "id": 1,
-      "item": "Geladeira de Mãe",
-      "recebedor": "Wellygnton",
-      "qtParcelaTotais": 10,
-      "qtParcelasPagas": 5,
-      "formaPagamento": "PIX",
-      "detalhes": "88659845445 (Tel)"
+      "item": "Aluguel",
+      "recebedor": "Meire",
+      "qtParcelaTotais": "5",
+      "formaPagamento": "Pix",
+      "detalhes": "1212121212",
+      "id": 1
     },
     {
-      "item": "Móveis",
-      "recebedor": "Clarice",
-      "qtParcelaTotais": "2",
-      "formaPagamento": "Pix",
-      "detalhes": "88981413430",
+      "item": "",
+      "recebedor": "",
+      "qtParcelaTotais": "",
+      "formaPagamento": "",
+      "detalhes": "",
+      "dataPagamento": "2022-03-23",
+      "valor": 0,
       "id": 2
     },
     {
@@ -23,14 +24,18 @@
       "qtParcelaTotais": "",
       "formaPagamento": "",
       "detalhes": "",
+      "dataPagamento": "2022-03-23",
+      "valor": 0,
       "id": 3
     },
     {
-      "item": "Internet",
-      "recebedor": "Clarice",
-      "qtParcelaTotais": "100",
-      "formaPagamento": "Pix",
-      "detalhes": "888888888",
+      "item": "",
+      "recebedor": "",
+      "qtParcelaTotais": "",
+      "formaPagamento": "",
+      "detalhes": "",
+      "dataPagamento": "2022-03-23",
+      "valor": 0,
       "id": 4
     },
     {
@@ -39,6 +44,8 @@
       "qtParcelaTotais": "",
       "formaPagamento": "",
       "detalhes": "",
+      "dataPagamento": "2022-03-23",
+      "valor": 0,
       "id": 5
     },
     {
@@ -47,30 +54,38 @@
       "qtParcelaTotais": "",
       "formaPagamento": "",
       "detalhes": "",
+      "dataPagamento": "2022-03-23",
+      "valor": 0,
       "id": 6
     },
     {
-      "item": "Feira",
-      "recebedor": "Casa",
-      "qtParcelaTotais": "12",
-      "formaPagamento": "Pix",
-      "detalhes": "45454545",
+      "item": "",
+      "recebedor": "",
+      "qtParcelaTotais": "",
+      "formaPagamento": "",
+      "detalhes": "",
+      "dataPagamento": "2022-03-23",
+      "valor": 0,
       "id": 7
     },
     {
-      "item": "a",
-      "recebedor": "a",
-      "qtParcelaTotais": "a",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "a",
+      "item": "",
+      "recebedor": "",
+      "qtParcelaTotais": "",
+      "formaPagamento": "",
+      "detalhes": "",
+      "dataPagamento": "2022-03-23",
+      "valor": 0,
       "id": 8
     },
     {
-      "item": "b",
-      "recebedor": "b",
-      "qtParcelaTotais": "b",
-      "formaPagamento": "Dinheiro",
-      "detalhes": "2",
+      "item": "",
+      "recebedor": "",
+      "qtParcelaTotais": "",
+      "formaPagamento": "",
+      "detalhes": "",
+      "dataPagamento": "2022-03-23",
+      "valor": 0,
       "id": 9
     },
     {
@@ -79,303 +94,19 @@
       "qtParcelaTotais": "",
       "formaPagamento": "",
       "detalhes": "",
+      "dataPagamento": "2022-03-23",
+      "valor": 0,
       "id": 10
     },
     {
-      "item": "a",
-      "recebedor": "b",
-      "qtParcelaTotais": "b",
-      "formaPagamento": "Cartão de Crédito",
-      "detalhes": "3",
-      "id": 11
-    },
-    {
-      "item": "a",
-      "recebedor": "b",
-      "qtParcelaTotais": "c",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "2",
-      "id": 12
-    },
-    {
-      "item": "b",
-      "recebedor": "a",
-      "qtParcelaTotais": "b",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "2",
-      "id": 13
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 14
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 15
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 16
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 17
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 18
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 19
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 20
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 21
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 22
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 23
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 24
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 25
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 26
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 27
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 28
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 29
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 30
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 31
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 32
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 33
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 34
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 35
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 36
-    },
-    {
-      "item": "Blusa",
-      "recebedor": "Fátima",
-      "qtParcelaTotais": "2",
+      "item": "Internet",
+      "recebedor": "Clarice",
+      "qtParcelaTotais": "100",
       "formaPagamento": "Pix",
-      "detalhes": "nada",
-      "id": 37
-    },
-    {
-      "item": "Energia",
-      "recebedor": "Inez",
-      "qtParcelaTotais": "2",
-      "formaPagamento": "Cartão de Crédito",
-      "detalhes": "1",
-      "id": 38
-    },
-    {
-      "item": "Teste",
-      "recebedor": "teste",
-      "qtParcelaTotais": "3",
-      "formaPagamento": "Cartão de Crédito",
-      "detalhes": "teste",
-      "id": 39
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 40
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 41
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 42
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 43
-    },
-    {
-      "item": "teste",
-      "recebedor": "Inez",
-      "qtParcelaTotais": "2",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "1",
-      "id": 44
-    },
-    {
-      "item": "teste",
-      "recebedor": "Inez",
-      "qtParcelaTotais": "2",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "1",
-      "id": 45
-    },
-    {
-      "item": "Energia2",
-      "recebedor": "Inez",
-      "qtParcelaTotais": "1",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "1",
-      "id": 46
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "id": 47
+      "detalhes": "12455454",
+      "dataPagamento": "2022-04-10",
+      "valor": "50",
+      "id": 11
     }
   ]
 }

@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { TextField, MenuItem, Button } from '@mui/material';
-import { cadastrar } from 'api/index';
-import { FormDespesa, FormContainer } from 'components/core/Despesa/style';
+import { cadastrar } from 'api';
+import { FormDespesa, FormContainer } from 'components/core/FormDespesa/style';
+import { todayDate } from 'common/utils/Datas';
 
 export default () => {
    const [item, setItem] = useState('');
@@ -11,6 +12,8 @@ export default () => {
    const [qtParcelaTotais, setQtParcelaTotais] = useState('');
    const [formaPagamento, setFormaPagamento] = useState('');
    const [detalhes, setDetalhes] = useState('');
+   const [dataPagamento, setDataPagamento] = useState(todayDate);
+   const [valor, setValor] = useState(0);
 
    const limparForm = () => {
       setItem('');
@@ -18,23 +21,27 @@ export default () => {
       setQtParcelaTotais('');
       setFormaPagamento('');
       setDetalhes('');
+      setDataPagamento(todayDate);
+      setValor(0);
    };
 
-   const handleForm = (event) => {
+   const handleForm = async (event) => {
       event.preventDefault();
-      cadastrar({
+      const status = await cadastrar({
          item,
          recebedor,
          qtParcelaTotais,
          formaPagamento,
          detalhes,
-      }).then((status) => {
-         if (status === 200) {
-            toast.success('Sua despesa foi cadastrada');
-         } else {
-            toast.error('Erro ao cadastrar sua despesa');
-         }
+         dataPagamento,
+         valor,
       });
+
+      if (status === 200) {
+         toast.success('Sua despesa foi cadastrada');
+      } else {
+         toast.error('Erro ao cadastrar sua despesa');
+      }
       limparForm();
    };
 
@@ -90,11 +97,29 @@ export default () => {
                <MenuItem value="Dinheiro">Dinheiro</MenuItem>
             </TextField>
             <TextField
-               id="outlined-nome"
+               id="detalhe"
                label="Detalhes"
                type="text"
                value={detalhes}
                onChange={(event) => setDetalhes(event.target.value)}
+               size="small"
+               sx={{ m: '0.3rem' }}
+            />
+            <TextField
+               id="dataPagamentoata"
+               label="Próxima pagamento em"
+               type="date"
+               value={dataPagamento}
+               onChange={(event) => setDataPagamento(event.target.value)}
+               size="small"
+               sx={{ m: '0.3rem' }}
+            />
+            <TextField
+               id="valor"
+               label="Valor da parcela"
+               type="number"
+               value={valor}
+               onChange={(event) => setValor(event.target.value)}
                size="small"
                sx={{ m: '0.3rem' }}
             />
