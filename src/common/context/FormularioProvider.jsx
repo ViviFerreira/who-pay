@@ -22,7 +22,6 @@ export default function FormularioProvider({ children }) {
       setDataPagamento(todayDate);
       setValor(0);
    };
-
    return (
       <FormularioContext.Provider
          value={{
