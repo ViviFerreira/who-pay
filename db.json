@@ -1,21 +1,23 @@
 {
   "pagar": [
     {
-      "item": "Aluguel",
-      "recebedor": "Meire",
-      "qtParcelaTotais": "5",
+      "item": "Feira",
+      "recebedor": "Casa",
+      "qtParcelaTotais": "9",
       "formaPagamento": "Pix",
-      "detalhes": "1212121212",
+      "detalhes": "88981413430",
+      "dataPagamento": "2022-04-10",
+      "valor": "300",
       "id": 1
     },
     {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "dataPagamento": "2022-03-23",
-      "valor": 0,
+      "item": "Geladeira",
+      "recebedor": "Wellygnton",
+      "qtParcelaTotais": "2",
+      "formaPagamento": "Pix",
+      "detalhes": "88965656565",
+      "dataPagamento": "2022-04-04",
+      "valor": "50",
       "id": 2
     },
     {
@@ -29,84 +31,40 @@
       "id": 3
     },
     {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "dataPagamento": "2022-03-23",
-      "valor": 0,
       "id": 4
     },
     {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "dataPagamento": "2022-03-23",
-      "valor": 0,
       "id": 5
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "dataPagamento": "2022-03-23",
-      "valor": 0,
-      "id": 6
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "dataPagamento": "2022-03-23",
-      "valor": 0,
-      "id": 7
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "dataPagamento": "2022-03-23",
-      "valor": 0,
-      "id": 8
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "dataPagamento": "2022-03-23",
-      "valor": 0,
-      "id": 9
-    },
-    {
-      "item": "",
-      "recebedor": "",
-      "qtParcelaTotais": "",
-      "formaPagamento": "",
-      "detalhes": "",
-      "dataPagamento": "2022-03-23",
-      "valor": 0,
-      "id": 10
     },
     {
       "item": "Internet",
       "recebedor": "Clarice",
-      "qtParcelaTotais": "100",
+      "qtParcelaTotais": "2",
       "formaPagamento": "Pix",
-      "detalhes": "12455454",
-      "dataPagamento": "2022-04-10",
+      "detalhes": "",
+      "dataPagamento": "2022-03-23",
       "valor": "50",
-      "id": 11
+      "id": 6
+    },
+    {
+      "item": "a",
+      "recebedor": "a",
+      "qtParcelaTotais": "1",
+      "formaPagamento": "Cartão de Crédito",
+      "detalhes": "a",
+      "dataPagamento": "2022-03-23",
+      "valor": "5",
+      "id": 7
+    },
+    {
+      "item": "a",
+      "recebedor": "teste",
+      "qtParcelaTotais": "1",
+      "formaPagamento": "Cartão de Débito",
+      "detalhes": "12455454",
+      "dataPagamento": "2022-03-23",
+      "valor": "1",
+      "id": 8
     }
   ]
 }

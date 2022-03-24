@@ -1,18 +1,22 @@
-import { buscar } from 'api';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
+import { DespesaContext } from 'common/context/DespesasProvider';
+import { useDespesaContext } from 'common/hooks/useDespesaContext';
 
-export function ListaDespesa({ url }) {
-   const [listaDespesas, setListaDespesas] = useState([]);
+export default function ListaDespesa() {
+   const { listaDespesas } = useContext(DespesaContext);
+   const { atualizarListaDespesas } = useDespesaContext();
 
-   const atualizarLista = () => {
-      buscar(url, setListaDespesas);
-      console.log('Passou aqui');
-   };
+   useEffect(() => {
+      atualizarListaDespesas();
+   }, []);
 
-   // useEffect(() => {
-
-   //    console.log(listaDespesas);
-   // }, [url]);
-
-   return listaDespesas.map((despesa) => despesa.item);
+   return (
+      <ul>
+         {listaDespesas.map((despesa) => (
+            <li key={despesa.id}>
+               {despesa.item} | {despesa.valor}{' '}
+            </li>
+         ))}
+      </ul>
+   );
 }

@@ -11,10 +11,11 @@ const Nav = styled.nav`
       color: ${colorWhite};
       font-size: 1rem;
       font-family: ${fontRoboto};
-      font-size: 1rem;
-      font-weight: 500;
+      font-size: 0.9rem;
+      font-weight: 400;
       padding: 0.6rem 0.5rem;
       border-radius: 0.2rem;
+      text-transform: uppercase;
    }
 
    @media only screen and (max-width: 764px) {

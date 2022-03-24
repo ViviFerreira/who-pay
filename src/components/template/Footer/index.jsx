@@ -1,8 +1,8 @@
-import { colorGray, colorRed, colorWhite } from 'components/IU/variaveis';
+import { colorDark, colorRed, colorWhite } from 'components/IU/variaveis';
 import styled from 'styled-components';
 
 const Footer = styled.div`
-   background: ${colorGray};
+   background: ${colorDark};
    text-align: center;
    font-size: 1rem;
    display: flex;

@@ -1,49 +1,32 @@
-import { useEffect, useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { useContext } from 'react';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { TextField, MenuItem, Button } from '@mui/material';
-import { cadastrar } from 'api';
 import { FormDespesa, FormContainer } from 'components/core/FormDespesa/style';
-import { todayDate } from 'common/utils/Datas';
+import { FormularioContext } from 'common/context/FormularioProvider';
+import { useDespesaContext } from 'common/hooks/useDespesaContext';
+import useErros from 'common/hooks/useErros';
 
 export default () => {
-   const [item, setItem] = useState('');
-   const [recebedor, setRecebedor] = useState('');
-   const [qtParcelaTotais, setQtParcelaTotais] = useState('');
-   const [formaPagamento, setFormaPagamento] = useState('');
-   const [detalhes, setDetalhes] = useState('');
-   const [dataPagamento, setDataPagamento] = useState(todayDate);
-   const [valor, setValor] = useState(0);
+   const {
+      item,
+      recebedor,
+      qtParcelaTotais,
+      formaPagamento,
+      detalhes,
+      dataPagamento,
+      valor,
+      setItem,
+      setRecebedor,
+      setQtParcelaTotais,
+      setFormaPagamento,
+      setDetalhes,
+      setDataPagamento,
+      setValor,
+   } = useContext(FormularioContext);
 
-   const limparForm = () => {
-      setItem('');
-      setRecebedor('');
-      setQtParcelaTotais('');
-      setFormaPagamento('');
-      setDetalhes('');
-      setDataPagamento(todayDate);
-      setValor(0);
-   };
-
-   const handleForm = async (event) => {
-      event.preventDefault();
-      const status = await cadastrar({
-         item,
-         recebedor,
-         qtParcelaTotais,
-         formaPagamento,
-         detalhes,
-         dataPagamento,
-         valor,
-      });
-
-      if (status === 200) {
-         toast.success('Sua despesa foi cadastrada');
-      } else {
-         toast.error('Erro ao cadastrar sua despesa');
-      }
-      limparForm();
-   };
+   const { handleForm } = useDespesaContext();
+   const { formValidado } = useErros();
 
    return (
       <FormDespesa>
@@ -106,7 +89,7 @@ export default () => {
                sx={{ m: '0.3rem' }}
             />
             <TextField
-               id="dataPagamentoata"
+               id="dataPagamento"
                label="Próxima pagamento em"
                type="date"
                value={dataPagamento}
@@ -126,14 +109,14 @@ export default () => {
             <Button
                className="btn-blue"
                variant="contained"
-               onClick={(event) => handleForm(event)}
                sx={{ m: '0.3rem' }}
-               type="submit"
+               onClick={(e) => handleForm(e)}
+               disabled={!formValidado()}
             >
                Cadastrar
             </Button>
          </FormContainer>
-         <ToastContainer autoClose={2000} />
+         <ToastContainer autoClose={1500} />
       </FormDespesa>
    );
 };
