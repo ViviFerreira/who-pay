@@ -3,6 +3,7 @@ import { FormularioContext } from 'common/context/FormularioProvider';
 import { DespesaContext } from 'common/context/DespesasProvider';
 import { cadastrar, buscar } from 'api';
 import { toast } from 'react-toastify';
+import { getMonth } from 'common/utils/Datas';
 
 export function useDespesaContext() {
    const {
@@ -21,6 +22,8 @@ export function useDespesaContext() {
       buscar('/pagar', setListaDespesas);
    };
 
+   const mesPagamento = getMonth(dataPagamento);
+
    const handleForm = async (event) => {
       event.preventDefault();
       const status = await cadastrar({
@@ -31,6 +34,7 @@ export function useDespesaContext() {
          detalhes,
          dataPagamento,
          valor,
+         mesPagamento,
       });
 
       if (status === 200) {

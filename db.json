@@ -1,84 +1,37 @@
 {
   "pagar": [
     {
-      "item": "Mes1",
-      "recebedor": "teste",
-      "qtParcelaTotais": "1",
-      "formaPagamento": "Cartão de Crédito",
+      "item": "Conta de janeiro",
+      "recebedor": "Clarice",
+      "qtParcelaTotais": "12",
+      "formaPagamento": "Pix",
       "detalhes": "",
-      "dataPagamento": "2022-01-01",
-      "valor": "1",
+      "dataPagamento": "2022-01-10",
+      "valor": "100",
+      "mesPagamento": 1,
       "id": 1
     },
     {
-      "item": "Janeiro",
-      "recebedor": "Inez",
+      "item": "Mes fevereiro",
+      "recebedor": "Clarice",
       "qtParcelaTotais": "1",
       "formaPagamento": "Cartão de Débito",
       "detalhes": "",
-      "dataPagamento": "2022-01-01",
-      "valor": "1",
+      "dataPagamento": "2022-02-10",
+      "valor": "50",
+      "mesPagamento": 2,
       "id": 2
     },
     {
-      "item": "Fevereira",
-      "recebedor": "1",
-      "qtParcelaTotais": "1",
+      "item": "Conta 2",
+      "recebedor": "Clarice",
+      "qtParcelaTotais": "5",
       "formaPagamento": "Cartão de Crédito",
       "detalhes": "",
-      "dataPagamento": "2022-02-01",
+      "dataPagamento": "2022-02-19",
       "valor": "1",
+      "mesPagamento": 2,
       "id": 3
-    },
-    {
-      "item": "janeiro",
-      "recebedor": "a",
-      "qtParcelaTotais": "2",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "a",
-      "dataPagamento": "2022-01-01",
-      "valor": "1",
-      "id": 4
-    },
-    {
-      "item": "fevereiro",
-      "recebedor": "a",
-      "qtParcelaTotais": "5",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "56565",
-      "dataPagamento": "2022-02-01",
-      "valor": "1",
-      "id": 5
-    },
-    {
-      "item": "março",
-      "recebedor": "a",
-      "qtParcelaTotais": "5",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "",
-      "dataPagamento": "2022-04-24",
-      "valor": "1",
-      "id": 6
-    },
-    {
-      "item": "marco",
-      "recebedor": "Inez",
-      "qtParcelaTotais": "1",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "",
-      "dataPagamento": "2022-03-24",
-      "valor": "1",
-      "id": 7
-    },
-    {
-      "item": "abril",
-      "recebedor": "a",
-      "qtParcelaTotais": "1",
-      "formaPagamento": "Cartão de Débito",
-      "detalhes": "a",
-      "dataPagamento": "2022-04-24",
-      "valor": "1",
-      "id": 8
     }
   ]
 }

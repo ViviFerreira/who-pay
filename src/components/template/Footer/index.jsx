@@ -1,35 +1,41 @@
-import { colorDark, colorRed, colorWhite } from 'components/IU/variaveis';
+import {
+   colorDark,
+   colorRed,
+   colorLight,
+   fontMont,
+} from 'components/IU/variaveis';
 import styled from 'styled-components';
+import { FaRegHeart } from 'react-icons/fa';
 
 const Footer = styled.div`
    background: ${colorDark};
    text-align: center;
-   font-size: 1rem;
    display: flex;
    justify-content: center;
    align-items: center;
-   color: ${colorWhite};
 
    a {
-      color: ${colorWhite};
+      color: ${colorLight};
+      font-weight: 100;
+      font-family: ${fontMont};
    }
 
-   i {
+   svg {
       color: ${colorRed};
+   }
+
+   span {
+      font-style: italic;
+      text-decoration: underline;
+      padding-right: 0.4rem;
    }
 `;
 
 export default () => (
    <Footer>
-      {' '}
-      <p>
-         Desenvolvido por{' '}
-         <span>
-            <a href="https://github.com/ViviFerreira" target="blank">
-               Viviane Ferreira
-            </a>{' '}
-            <i className="bi bi-suit-heart-fill"></i>
-         </span>
-      </p>
+      <a href="https://github.com/ViviFerreira" target="blank">
+         Desenvolvido por <span>Viviane Ferreira</span>
+         <FaRegHeart />
+      </a>
    </Footer>
 );

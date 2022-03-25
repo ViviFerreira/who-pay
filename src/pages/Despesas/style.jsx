@@ -11,6 +11,6 @@ export const ContainerFlex = styled.div`
 
 export const Title = styled.h3`
    font-size: 1rem;
+   margin-left: 1rem;
    font-weight: bold;
-   text-align: center;
 `;

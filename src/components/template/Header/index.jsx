@@ -14,7 +14,7 @@ const Header = styled.div`
    .logo {
       color: ${colorWhite};
       justify-self: flex-start;
-      margin-left: 2rem;
+      margin-left: 5rem;
       font-size: 1.2rem;
       font-family: ${fontMont};
       font-weight: 600;

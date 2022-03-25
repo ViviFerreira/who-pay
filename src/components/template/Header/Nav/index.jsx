@@ -1,21 +1,32 @@
 import { Link } from 'react-router-dom';
 import { colorWhite, fontRoboto } from 'components/IU/variaveis';
+import { FaMoneyCheck, FaHome, FaWallet } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
    width: 25vw;
+   min-width: 18rem;
    display: flex;
    justify-content: space-around;
+   align-items: baseline;
 
    a {
       color: ${colorWhite};
+   }
+
+   span {
+      padding-left: 0.3rem;
       font-size: 1rem;
       font-family: ${fontRoboto};
       font-size: 0.9rem;
-      font-weight: 400;
+      font-weight: 500;
       padding: 0.6rem 0.5rem;
       border-radius: 0.2rem;
       text-transform: uppercase;
+   }
+
+   svg {
+      font-size: 1.2rem;
    }
 
    @media only screen and (max-width: 764px) {
@@ -29,13 +40,16 @@ const Nav = styled.nav`
 export default () => (
    <Nav>
       <Link to="/">
-         <i className="bi bi-house"></i> Inicio
+         <FaHome />
+         <span>Inicio</span>
       </Link>
       <Link to="/despesas">
-         <i className="bi bi-wallet2"></i> Despesas
+         <FaWallet />
+         <span>Despesas</span>
       </Link>
       <Link to="/pagamento">
-         <i className="bi bi-credit-card"></i> Paguei
+         <FaMoneyCheck />
+         <span>Paguei</span>
       </Link>
    </Nav>
 );
