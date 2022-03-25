@@ -1,7 +1,8 @@
 import Layout from 'components/Layout';
 import FormDespesa from 'components/core/FormDespesa';
 import ListaDespesas from 'components/core/ListaDespesas';
-import { ContainerFlex, Title } from './style';
+import { ContainerFlex } from './style';
+import { Title } from 'components/Title';
 import FormularioProvider from 'common/context/FormularioProvider';
 import DespesasProvider from 'common/context/DespesasProvider';
 
@@ -14,6 +15,7 @@ export default function RegistrarDespesa() {
                <ContainerFlex>
                   <FormDespesa />
                </ContainerFlex>
+               <Title>Próximos pagamentos</Title>
                <ListaDespesas />
             </FormularioProvider>
          </DespesasProvider>

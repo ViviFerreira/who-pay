@@ -1,4 +1,4 @@
-import Nav from 'components/template/Header/Nav';
+import Nav from 'components/Layout/template/Header/Nav';
 import { colorPrimary, colorWhite, fontMont } from 'components/IU/variaveis';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';

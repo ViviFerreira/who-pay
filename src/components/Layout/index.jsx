@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Header from 'components/template/Header';
-import Main from 'components/template/Main';
-import Footer from 'components/template/Footer';
+import Header from 'components/Layout/template/Header';
+import Main from 'components/Layout/template/Main';
+import Footer from 'components/Layout/template/Footer';
 
 const Layout = styled.div`
    display: grid;
