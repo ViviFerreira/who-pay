@@ -71,13 +71,11 @@ export default () => {
                sx={{ m: '0.3rem' }}
                required
             >
-               <MenuItem value="Nenhuma">
-                  <em>Nenhuma</em>
-               </MenuItem>
                <MenuItem value="Cartão de Crédito">Cartão de Crédito</MenuItem>
                <MenuItem value="Cartão de Débito">Cartão de Débito</MenuItem>
                <MenuItem value="Pix">Pix</MenuItem>
                <MenuItem value="Dinheiro">Dinheiro</MenuItem>
+               <MenuItem value="Outra">Outra</MenuItem>
             </TextField>
             <TextField
                id="detalhe"
@@ -107,8 +105,8 @@ export default () => {
                sx={{ m: '0.3rem' }}
             />
             <Button
-               className="btn-blue"
                variant="contained"
+               className="btn-custom"
                sx={{ m: '0.3rem' }}
                onClick={(e) => handleForm(e)}
                disabled={!formValidado()}

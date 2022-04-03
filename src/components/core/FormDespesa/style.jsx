@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colorPrimary } from 'components/IU/variaveis';
 
 export const FormDespesa = styled.form`
-   width: 90vw;
+   width: 95vw;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -10,12 +10,17 @@ export const FormDespesa = styled.form`
       width: 90vw;
    }
 
-   .btn-blue,
-   .btn-blue:hover {
+   .btn-custom,
+   .btn-custom:hover {
       background: ${colorPrimary};
       text-transform: none;
       font-size: 1rem;
       box-shadow: none;
+   }
+
+   input,
+   #formaPagamento {
+      background: white;
    }
 `;
 

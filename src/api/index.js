@@ -18,6 +18,11 @@ export const buscar = async (url, setDado) => {
    setDado(resp.data);
 };
 
-export const editar = (values, id) => {
-   api.put(`/pagar/${id}`, values);
+export const editar = async (values, id) => {
+   try {
+      await api.put(`/pagar/${id}`, values);
+      return 200;
+   } catch (error) {
+      return 400;
+   }
 };

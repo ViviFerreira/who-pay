@@ -1,5 +1,8 @@
 import { colorBlue, colorWhite } from 'components/IU/variaveis';
 import styled from 'styled-components';
+import DetalhesDespesa from 'components/core/DetalhesDespesa';
+import { useContext } from 'react';
+import { ModalContext } from 'common/context/ModalProvider';
 
 const CardDespesa = styled.div`
    display: flex;
@@ -33,11 +36,18 @@ const Badge = styled.div`
    border-radius: 0.25rem;
 `;
 
-export default ({ despesa }) => (
-   <CardDespesa>
-      <div>{despesa.item}</div>
-      <div>
-         <Badge>{despesa.recebedor}</Badge>
-      </div>
-   </CardDespesa>
-);
+export default ({ despesa }) => {
+   const { handleClickOpen } = useContext(ModalContext);
+
+   return (
+      <>
+         <CardDespesa onClick={handleClickOpen}>
+            <div>{despesa.item}</div>
+            <div>
+               <Badge>{despesa.recebedor}</Badge>
+            </div>
+         </CardDespesa>
+         <DetalhesDespesa despesa={despesa} />
+      </>
+   );
+};

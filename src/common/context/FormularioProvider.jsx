@@ -8,20 +8,11 @@ export default function FormularioProvider({ children }) {
    const [item, setItem] = useState('');
    const [recebedor, setRecebedor] = useState('');
    const [qtParcelaTotais, setQtParcelaTotais] = useState('');
-   const [formaPagamento, setFormaPagamento] = useState('');
+   const [formaPagamento, setFormaPagamento] = useState('Pix');
    const [detalhes, setDetalhes] = useState('');
    const [dataPagamento, setDataPagamento] = useState(todayDate);
    const [valor, setValor] = useState(0);
 
-   const limparForm = () => {
-      setItem('');
-      setRecebedor('');
-      setQtParcelaTotais('');
-      setFormaPagamento('');
-      setDetalhes('');
-      setDataPagamento(todayDate);
-      setValor(0);
-   };
    return (
       <FormularioContext.Provider
          value={{
@@ -39,7 +30,6 @@ export default function FormularioProvider({ children }) {
             setDetalhes,
             setDataPagamento,
             setValor,
-            limparForm,
          }}
       >
          {children}
