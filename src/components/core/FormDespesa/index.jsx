@@ -25,7 +25,7 @@ export default () => {
       setValor,
    } = useContext(FormularioContext);
 
-   const { handleForm } = useDespesaContext();
+   const { handleForm, actionBtnForm } = useDespesaContext();
    const { formValidado } = useErros();
 
    return (
@@ -111,7 +111,7 @@ export default () => {
                onClick={(e) => handleForm(e)}
                disabled={!formValidado()}
             >
-               Cadastrar
+               {actionBtnForm}
             </Button>
          </FormContainer>
          <ToastContainer autoClose={1500} />

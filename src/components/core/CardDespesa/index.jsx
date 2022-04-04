@@ -1,7 +1,7 @@
+import { useState, useContext } from 'react';
 import { colorBlue, colorWhite } from 'components/IU/variaveis';
 import styled from 'styled-components';
 import DetalhesDespesa from 'components/core/DetalhesDespesa';
-import { useContext } from 'react';
 import { ModalContext } from 'common/context/ModalProvider';
 
 const CardDespesa = styled.div`

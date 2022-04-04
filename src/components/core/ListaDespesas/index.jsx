@@ -6,6 +6,7 @@ import { getNameMonth } from 'common/utils/Datas';
 import { H4 } from 'components/typography/H4';
 import { BoxDespesa, ContainerDespesas } from './style';
 import { Alert } from '@mui/material';
+import ModalProvider from 'common/context/ModalProvider';
 
 export default function ListaDespesa() {
    const { listaDespesas } = useContext(DespesaContext);
@@ -38,7 +39,9 @@ export default function ListaDespesa() {
                      {listaDespesas
                         .filter((despesa) => despesa.mesPagamento === mes)
                         .map((despesa) => (
-                           <CardDespesa despesa={despesa} key={despesa.id} />
+                           <ModalProvider key={despesa.id}>
+                              <CardDespesa despesa={despesa} />
+                           </ModalProvider>
                         ))}
                   </BoxDespesa>
                );

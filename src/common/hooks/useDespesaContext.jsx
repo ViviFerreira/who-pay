@@ -16,6 +16,7 @@ export function useDespesaContext() {
       detalhes,
       dataPagamento,
       valor,
+      id,
       setItem,
       setRecebedor,
       setQtParcelaTotais,
@@ -23,6 +24,7 @@ export function useDespesaContext() {
       setDetalhes,
       setDataPagamento,
       setValor,
+      setId,
    } = useContext(FormularioContext);
 
    const { setListaDespesas } = useContext(DespesaContext);
@@ -47,22 +49,44 @@ export function useDespesaContext() {
 
    const handleForm = async (event) => {
       event.preventDefault();
-      const status = await cadastrar({
-         item,
-         recebedor,
-         qtParcelaTotais,
-         formaPagamento,
-         detalhes,
-         dataPagamento,
-         valor,
-         mesPagamento,
-      });
 
-      if (status === 200) {
-         toast.success('Sua despesa foi cadastrada');
+      if (!id) {
+         const status = await cadastrar({
+            item,
+            recebedor,
+            qtParcelaTotais,
+            formaPagamento,
+            detalhes,
+            dataPagamento,
+            valor,
+            mesPagamento,
+         });
+
+         status === 200 || status === 201
+            ? toast.success('Sua despesa foi cadastrada')
+            : toast.error('Erro ao cadastrar sua despesa');
       } else {
-         toast.error('Erro ao cadastrar sua despesa');
+         const status = await editar(
+            {
+               item,
+               recebedor,
+               qtParcelaTotais,
+               formaPagamento,
+               detalhes,
+               dataPagamento,
+               valor,
+               mesPagamento,
+            },
+            id
+         );
+
+         status === 200 || status === 201
+            ? toast.success('Sua despesa foi alterada')
+            : toast.error('Erro ao alterar sua despesa');
+
+         setId('');
       }
+
       limparForm();
       atualizarListaDespesas();
    };
@@ -75,13 +99,21 @@ export function useDespesaContext() {
       setDetalhes(despesa.detalhes);
       setDataPagamento(despesa.dataPagamento);
       setValor(despesa.valor);
+      setId(despesa.id);
 
       handleClose();
    };
+
+   const actionBtnForm = !id ? 'Cadastrar' : 'Editar';
+   const tituloForm = !id
+      ? 'Registrar nova conta a pagar'
+      : 'Editar conta a pagar';
 
    return {
       atualizarListaDespesas,
       handleForm,
       loadDespesa,
+      actionBtnForm,
+      tituloForm,
    };
 }

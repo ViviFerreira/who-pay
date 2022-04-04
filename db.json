@@ -1,103 +1,103 @@
 {
-	"pagar": [
-		{
-			"item": "Aluguel",
-			"recebedor": "Meire",
-			"qtParcelaTotais": "9",
-			"formaPagamento": "Pix",
-			"detalhes": "88.....",
-			"dataPagamento": "2022-04-15",
-			"valor": "250",
-			"mesPagamento": 4,
-			"id": 1
-		},
-		{
-			"item": "Fatura",
-			"recebedor": "Nubank",
-			"qtParcelaTotais": "1",
-			"formaPagamento": "Pix",
-			"detalhes": "88....",
-			"dataPagamento": "2022-04-10",
-			"valor": "400",
-			"mesPagamento": 4,
-			"id": 2
-		},
-		{
-			"item": "Internet ",
-			"recebedor": "Clarice",
-			"qtParcelaTotais": "100",
-			"formaPagamento": "Pix",
-			"detalhes": "",
-			"dataPagamento": "2022-04-10",
-			"valor": "50",
-			"mesPagamento": 4,
-			"id": 3
-		},
-		{
-			"item": "Energia",
-			"recebedor": "Elonet",
-			"qtParcelaTotais": "1",
-			"formaPagamento": "Pix",
-			"detalhes": "",
-			"dataPagamento": "2022-04-10",
-			"valor": "60",
-			"mesPagamento": 4,
-			"id": 4
-		},
-		{
-			"item": "Feira",
-			"recebedor": "Eu",
-			"qtParcelaTotais": "100",
-			"formaPagamento": "Pix",
-			"detalhes": "",
-			"dataPagamento": "2022-04-10",
-			"valor": "150",
-			"mesPagamento": 4,
-			"id": 5
-		},
-		{
-			"item": "Móveis",
-			"recebedor": "Clarice",
-			"qtParcelaTotais": "1",
-			"formaPagamento": "Pix",
-			"detalhes": "",
-			"dataPagamento": "2022-04-10",
-			"valor": "110",
-			"mesPagamento": 4,
-			"id": 6
-		},
-		{
-			"item": "Spotify",
-			"recebedor": "Caio",
-			"qtParcelaTotais": "100",
-			"formaPagamento": "Pix",
-			"detalhes": "",
-			"dataPagamento": "2022-04-10",
-			"valor": "8.5",
-			"mesPagamento": 4,
-			"id": 7
-		},
-		{
-			"item": "Geladeira",
-			"recebedor": "Wellygnton",
-			"qtParcelaTotais": "3",
-			"formaPagamento": "Pix",
-			"detalhes": "",
-			"dataPagamento": "2022-04-30",
-			"valor": "50",
-			"mesPagamento": 4,
-			"id": 8
-		},
-		{
-			"item": "Alura",
-			"recebedor": "Matheus",
-			"qtParcelaTotais": "100",
-			"formaPagamento": "Pix",
-			"detalhes": "",
-			"dataPagamento": "2022-04-15",
-			"valor": "21",
-			"mesPagamento": 4,
-			"id": 9
-		}
-	]
+  "pagar": [
+    {
+      "item": "Aluguel",
+      "recebedor": "Meire",
+      "qtParcelaTotais": "9",
+      "formaPagamento": "Pix",
+      "detalhes": "88981413430",
+      "dataPagamento": "2022-04-15",
+      "valor": "250",
+      "mesPagamento": 4,
+      "id": 1
+    },
+    {
+      "item": "Fatura",
+      "recebedor": "Nubank",
+      "qtParcelaTotais": "5",
+      "formaPagamento": "Pix",
+      "detalhes": "88981413430",
+      "dataPagamento": "2022-04-10",
+      "valor": "400",
+      "mesPagamento": 4,
+      "id": 2
+    },
+    {
+      "item": "Internet ",
+      "recebedor": "Clarice",
+      "qtParcelaTotais": "100",
+      "formaPagamento": "Pix",
+      "detalhes": "",
+      "dataPagamento": "2022-04-10",
+      "valor": "50",
+      "mesPagamento": 4,
+      "id": 3
+    },
+    {
+      "item": "Energia",
+      "recebedor": "Elonet",
+      "qtParcelaTotais": "1",
+      "formaPagamento": "Pix",
+      "detalhes": "",
+      "dataPagamento": "2022-04-10",
+      "valor": "60",
+      "mesPagamento": 4,
+      "id": 4
+    },
+    {
+      "item": "Feira",
+      "recebedor": "Casa",
+      "qtParcelaTotais": "100",
+      "formaPagamento": "Pix",
+      "detalhes": "88981413430",
+      "dataPagamento": "2022-04-10",
+      "valor": "150",
+      "mesPagamento": 4,
+      "id": 5
+    },
+    {
+      "item": "Móveis",
+      "recebedor": "Clarice",
+      "qtParcelaTotais": "1",
+      "formaPagamento": "Pix",
+      "detalhes": "",
+      "dataPagamento": "2022-04-10",
+      "valor": "110",
+      "mesPagamento": 4,
+      "id": 6
+    },
+    {
+      "item": "Spotify",
+      "recebedor": "Caio",
+      "qtParcelaTotais": "100",
+      "formaPagamento": "Pix",
+      "detalhes": "",
+      "dataPagamento": "2022-04-10",
+      "valor": "8.5",
+      "mesPagamento": 4,
+      "id": 7
+    },
+    {
+      "item": "Geladeira",
+      "recebedor": "Wellygnton",
+      "qtParcelaTotais": "3",
+      "formaPagamento": "Pix",
+      "detalhes": "",
+      "dataPagamento": "2022-04-30",
+      "valor": "50",
+      "mesPagamento": 4,
+      "id": 8
+    },
+    {
+      "item": "Alura",
+      "recebedor": "Matheus",
+      "qtParcelaTotais": "50",
+      "formaPagamento": "Pix",
+      "detalhes": "",
+      "dataPagamento": "2022-04-15",
+      "valor": "21",
+      "mesPagamento": 4,
+      "id": 9
+    }
+  ]
 }

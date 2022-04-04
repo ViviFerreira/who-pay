@@ -12,6 +12,7 @@ export default function FormularioProvider({ children }) {
    const [detalhes, setDetalhes] = useState('');
    const [dataPagamento, setDataPagamento] = useState(todayDate);
    const [valor, setValor] = useState(0);
+   const [id, setId] = useState('');
 
    return (
       <FormularioContext.Provider
@@ -23,6 +24,7 @@ export default function FormularioProvider({ children }) {
             detalhes,
             dataPagamento,
             valor,
+            id,
             setItem,
             setRecebedor,
             setQtParcelaTotais,
@@ -30,6 +32,7 @@ export default function FormularioProvider({ children }) {
             setDetalhes,
             setDataPagamento,
             setValor,
+            setId,
          }}
       >
          {children}

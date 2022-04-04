@@ -6,10 +6,10 @@ export const api = axios.create({
 
 export const cadastrar = async (values) => {
    try {
-      await api.post('/pagar', values);
-      return 200;
+      const { status } = await api.post('/pagar', values);
+      return status;
    } catch (error) {
-      return 400;
+      return error;
    }
 };
 
@@ -20,9 +20,9 @@ export const buscar = async (url, setDado) => {
 
 export const editar = async (values, id) => {
    try {
-      await api.put(`/pagar/${id}`, values);
-      return 200;
+      const { status } = await api.put(`/pagar/${id}`, values);
+      return status;
    } catch (error) {
-      return 400;
+      return error;
    }
 };

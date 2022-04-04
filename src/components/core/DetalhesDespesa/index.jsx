@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useContext } from 'react';
 import {
    colorLight,
    colorDark,
@@ -14,7 +15,6 @@ import {
    DialogActions,
 } from '@mui/material';
 import { dateFormat } from 'common/utils/Datas';
-import { useContext } from 'react';
 import { ModalContext } from 'common/context/ModalProvider';
 import { useDespesaContext } from 'common/hooks/useDespesaContext';
 
@@ -55,7 +55,7 @@ export default ({ despesa }) => {
                   <GridItem>
                      Total Parcelas : {despesa.qtParcelaTotais}
                   </GridItem>
-                  <GridItem>Total Parcelas : 0</GridItem>
+                  <GridItem>Total Pagas : 0</GridItem>
                   <GridItem>
                      Form de pagamento : {despesa.formaPagamento}
                   </GridItem>
