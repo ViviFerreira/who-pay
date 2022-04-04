@@ -16,7 +16,7 @@ import {
 } from '@mui/material';
 import { dateFormat } from 'common/utils/Datas';
 import { ModalContext } from 'common/context/ModalProvider';
-import { useDespesaContext } from 'common/hooks/useDespesaContext';
+import useDespesaContext from 'common/hooks/useDespesaContext';
 
 const Grid = styled.div`
    display: grid;

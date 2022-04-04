@@ -7,7 +7,7 @@ import { todayDate } from 'common/utils/Datas';
 import { toast } from 'react-toastify';
 import { getMonth } from 'common/utils/Datas';
 
-export function useDespesaContext() {
+export default function useDespesaContext() {
    const {
       item,
       recebedor,
@@ -31,10 +31,6 @@ export function useDespesaContext() {
 
    const { handleClose } = useContext(ModalContext);
 
-   const atualizarListaDespesas = () => {
-      buscar('/pagar', setListaDespesas);
-   };
-
    const limparForm = () => {
       setItem('');
       setRecebedor('');
@@ -43,52 +39,6 @@ export function useDespesaContext() {
       setDetalhes('');
       setDataPagamento(todayDate);
       setValor(0);
-   };
-
-   const mesPagamento = getMonth(dataPagamento);
-
-   const handleForm = async (event) => {
-      event.preventDefault();
-
-      if (!id) {
-         const status = await cadastrar({
-            item,
-            recebedor,
-            qtParcelaTotais,
-            formaPagamento,
-            detalhes,
-            dataPagamento,
-            valor,
-            mesPagamento,
-         });
-
-         status === 200 || status === 201
-            ? toast.success('Sua despesa foi cadastrada')
-            : toast.error('Erro ao cadastrar sua despesa');
-      } else {
-         const status = await editar(
-            {
-               item,
-               recebedor,
-               qtParcelaTotais,
-               formaPagamento,
-               detalhes,
-               dataPagamento,
-               valor,
-               mesPagamento,
-            },
-            id
-         );
-
-         status === 200 || status === 201
-            ? toast.success('Sua despesa foi alterada')
-            : toast.error('Erro ao alterar sua despesa');
-
-         setId('');
-      }
-
-      limparForm();
-      atualizarListaDespesas();
    };
 
    const loadDespesa = (despesa) => {
@@ -102,6 +52,44 @@ export function useDespesaContext() {
       setId(despesa.id);
 
       handleClose();
+   };
+
+   const atualizarListaDespesas = () => {
+      buscar('/pagar', setListaDespesas);
+   };
+
+   const handleForm = async (event) => {
+      event.preventDefault();
+      const mesPagamento = getMonth(dataPagamento);
+      const objDespesa = {
+         item,
+         recebedor,
+         qtParcelaTotais,
+         formaPagamento,
+         detalhes,
+         dataPagamento,
+         valor,
+         mesPagamento,
+      };
+
+      if (!id) {
+         const status = await cadastrar({ ...objDespesa });
+
+         status === 200 || status === 201
+            ? toast.success('Sua despesa foi cadastrada')
+            : toast.error('Erro ao cadastrar sua despesa');
+      } else {
+         const status = await editar({ ...objDespesa }, id);
+
+         status === 200 || status === 201
+            ? toast.success('Sua despesa foi alterada')
+            : toast.error('Erro ao alterar sua despesa');
+
+         setId('');
+      }
+
+      limparForm();
+      atualizarListaDespesas();
    };
 
    const actionBtnForm = !id ? 'Cadastrar' : 'Editar';

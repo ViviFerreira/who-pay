@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { DespesaContext } from 'common/context/DespesasProvider';
-import { useDespesaContext } from 'common/hooks/useDespesaContext';
+import useDespesaContext from 'common/hooks/useDespesaContext';
 import CardDespesa from 'components/core/CardDespesa';
 import { getNameMonth } from 'common/utils/Datas';
 import { H4 } from 'components/typography/H4';

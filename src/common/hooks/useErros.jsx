@@ -1,7 +1,7 @@
 import { FormularioContext } from 'common/context/FormularioProvider';
 import { useContext } from 'react';
 
-function useErros() {
+export default function useErros() {
    const { item, recebedor, qtParcelaTotais, formaPagamento, valor } =
       useContext(FormularioContext);
 
@@ -20,5 +20,3 @@ function useErros() {
 
    return { formValidado };
 }
-
-export default useErros;
