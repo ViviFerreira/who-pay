@@ -14,7 +14,7 @@ export default function useDespesaContext() {
       qtParcelaTotais,
       formaPagamento,
       detalhes,
-      dataPagamento,
+      proxPagamento,
       valor,
       id,
       setItem,
@@ -22,7 +22,7 @@ export default function useDespesaContext() {
       setQtParcelaTotais,
       setFormaPagamento,
       setDetalhes,
-      setDataPagamento,
+      setProxPagamento,
       setValor,
       setId,
    } = useContext(FormularioContext);
@@ -37,7 +37,7 @@ export default function useDespesaContext() {
       setQtParcelaTotais('');
       setFormaPagamento('Pix');
       setDetalhes('');
-      setDataPagamento(todayDate);
+      setProxPagamento(todayDate);
       setValor(0);
    };
 
@@ -47,27 +47,27 @@ export default function useDespesaContext() {
       setQtParcelaTotais(despesa.qtParcelaTotais);
       setFormaPagamento(despesa.formaPagamento);
       setDetalhes(despesa.detalhes);
-      setDataPagamento(despesa.dataPagamento);
+      setProxPagamento(despesa.proxPagamento);
       setValor(despesa.valor);
       setId(despesa.id);
 
       handleClose();
    };
 
-   const atualizarListaDespesas = () => {
-      buscar('/pagar', setListaDespesas);
+   const buscarDespesas = async () => {
+      setListaDespesas(await buscar('/pagar', setListaDespesas));
    };
 
    const handleForm = async (event) => {
       event.preventDefault();
-      const mesPagamento = getMonth(dataPagamento);
+      const mesPagamento = getMonth(proxPagamento);
       const objDespesa = {
          item,
          recebedor,
          qtParcelaTotais,
          formaPagamento,
          detalhes,
-         dataPagamento,
+         proxPagamento,
          valor,
          mesPagamento,
       };
@@ -89,7 +89,7 @@ export default function useDespesaContext() {
       }
 
       limparForm();
-      atualizarListaDespesas();
+      buscarDespesas();
    };
 
    const actionBtnForm = !id ? 'Cadastrar' : 'Editar';
@@ -98,7 +98,7 @@ export default function useDespesaContext() {
       : 'Editar conta a pagar';
 
    return {
-      atualizarListaDespesas,
+      buscarDespesas,
       handleForm,
       loadDespesa,
       actionBtnForm,

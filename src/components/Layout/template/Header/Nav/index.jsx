@@ -4,8 +4,7 @@ import { FaMoneyCheck, FaHome, FaWallet } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-   width: 25vw;
-   min-width: 18rem;
+   min-width: 15rem;
    display: flex;
    justify-content: space-around;
    align-items: baseline;
@@ -46,10 +45,6 @@ export default () => (
       <Link to="/despesas">
          <FaWallet />
          <span>Despesas</span>
-      </Link>
-      <Link to="/pagamento">
-         <FaMoneyCheck />
-         <span>Paguei</span>
       </Link>
    </Nav>
 );

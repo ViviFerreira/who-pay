@@ -5,6 +5,7 @@ import {
    colorDark,
    colorBlue,
    colorRed,
+   colorGreen,
 } from 'components/IU/variaveis';
 import {
    Button,
@@ -17,6 +18,7 @@ import {
 import { dateFormat } from 'common/utils/Datas';
 import { ModalContext } from 'common/context/ModalProvider';
 import useDespesaContext from 'common/hooks/useDespesaContext';
+import { useNavigate } from 'react-router-dom';
 
 const Grid = styled.div`
    display: grid;
@@ -34,6 +36,7 @@ const GridItem = styled.div`
 `;
 
 export default ({ despesa }) => {
+   const navigate = useNavigate();
    const { open, handleClose } = useContext(ModalContext);
    const { loadDespesa } = useDespesaContext();
 
@@ -61,7 +64,7 @@ export default ({ despesa }) => {
                   </GridItem>
                   <GridItem>Detalhes : {despesa.detalhes}</GridItem>
                   <GridItem>
-                     Próx pagamento : {dateFormat(despesa.dataPagamento)}
+                     Próx pagamento : {dateFormat(despesa.proxPagamento)}
                   </GridItem>
                   <GridItem>Valor : {despesa.valor}</GridItem>
                </Grid>
@@ -83,6 +86,14 @@ export default ({ despesa }) => {
                size="small"
             >
                Fechar
+            </Button>
+            <Button
+               onClick={() => navigate(`/pagar/${despesa.id}`)}
+               variant="contained"
+               sx={{ background: colorGreen }}
+               size="small"
+            >
+               Paguei
             </Button>
          </DialogActions>
       </Dialog>

@@ -14,14 +14,14 @@ export default () => {
       qtParcelaTotais,
       formaPagamento,
       detalhes,
-      dataPagamento,
+      proxPagamento,
       valor,
       setItem,
       setRecebedor,
       setQtParcelaTotais,
       setFormaPagamento,
       setDetalhes,
-      setDataPagamento,
+      setProxPagamento,
       setValor,
    } = useContext(FormularioContext);
 
@@ -87,11 +87,11 @@ export default () => {
                sx={{ m: '0.3rem' }}
             />
             <TextField
-               id="dataPagamento"
+               id="proxPagamento"
                label="Próxima pagamento em"
                type="date"
-               value={dataPagamento}
-               onChange={(event) => setDataPagamento(event.target.value)}
+               value={proxPagamento}
+               onChange={(event) => setProxPagamento(event.target.value)}
                size="small"
                sx={{ m: '0.3rem' }}
             />

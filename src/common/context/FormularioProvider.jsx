@@ -10,7 +10,7 @@ export default function FormularioProvider({ children }) {
    const [qtParcelaTotais, setQtParcelaTotais] = useState('');
    const [formaPagamento, setFormaPagamento] = useState('Pix');
    const [detalhes, setDetalhes] = useState('');
-   const [dataPagamento, setDataPagamento] = useState(todayDate);
+   const [proxPagamento, setProxPagamento] = useState(todayDate);
    const [valor, setValor] = useState(0);
    const [id, setId] = useState('');
 
@@ -22,7 +22,7 @@ export default function FormularioProvider({ children }) {
             qtParcelaTotais,
             formaPagamento,
             detalhes,
-            dataPagamento,
+            proxPagamento,
             valor,
             id,
             setItem,
@@ -30,7 +30,7 @@ export default function FormularioProvider({ children }) {
             setQtParcelaTotais,
             setFormaPagamento,
             setDetalhes,
-            setDataPagamento,
+            setProxPagamento,
             setValor,
             setId,
          }}

@@ -5,7 +5,7 @@ import { ContainerFlex } from './style';
 import { H3 } from 'components/typography/H3';
 import useDespesaContext from 'common/hooks/useDespesaContext';
 
-export default function RegistrarDespesa() {
+export default function Despesas() {
    const { tituloForm } = useDespesaContext();
 
    return (

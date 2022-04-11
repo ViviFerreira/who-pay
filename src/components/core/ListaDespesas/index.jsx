@@ -10,10 +10,10 @@ import ModalProvider from 'common/context/ModalProvider';
 
 export default function ListaDespesa() {
    const { listaDespesas } = useContext(DespesaContext);
-   const { atualizarListaDespesas } = useDespesaContext();
+   const { buscarDespesas } = useDespesaContext();
 
    useEffect(() => {
-      atualizarListaDespesas();
+      buscarDespesas();
    }, []);
 
    const mesesPagamento = [

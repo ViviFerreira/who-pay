@@ -10,14 +10,6 @@ export const FormDespesa = styled.form`
       width: 90vw;
    }
 
-   .btn-custom,
-   .btn-custom:hover {
-      background: ${colorPrimary};
-      text-transform: none;
-      font-size: 1rem;
-      box-shadow: none;
-   }
-
    input,
    #formaPagamento {
       background: white;

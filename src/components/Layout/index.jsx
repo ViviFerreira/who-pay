@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colorPrimary } from 'components/IU/variaveis';
 import Header from 'components/Layout/template/Header';
 import Main from 'components/Layout/template/Main';
 import Footer from 'components/Layout/template/Footer';
@@ -18,6 +19,14 @@ const Layout = styled.div`
 
    footer {
       grid-area: footer;
+   }
+
+   .btn-custom,
+   .btn-custom:hover {
+      background: ${colorPrimary};
+      text-transform: none;
+      font-size: 1rem;
+      box-shadow: none;
    }
 `;
 
