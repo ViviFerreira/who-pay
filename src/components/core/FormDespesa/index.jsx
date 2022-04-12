@@ -11,18 +11,18 @@ export default () => {
    const {
       item,
       recebedor,
-      qtParcelaTotais,
+      qtParcelasTotais,
       formaPagamento,
       detalhes,
       proxPagamento,
-      valor,
+      valorParcela,
       setItem,
       setRecebedor,
-      setQtParcelaTotais,
+      setqtParcelasTotais,
       setFormaPagamento,
       setDetalhes,
       setProxPagamento,
-      setValor,
+      setValorParcela,
    } = useContext(FormularioContext);
 
    const { handleForm, actionBtnForm } = useDespesaContext();
@@ -55,8 +55,8 @@ export default () => {
                id="parcelasTotais"
                label="Em quantas parcelas"
                type="number"
-               value={qtParcelaTotais}
-               onChange={(event) => setQtParcelaTotais(event.target.value)}
+               value={qtParcelasTotais}
+               onChange={(event) => setqtParcelasTotais(event.target.value)}
                size="small"
                sx={{ m: '0.3rem' }}
                required
@@ -96,11 +96,11 @@ export default () => {
                sx={{ m: '0.3rem' }}
             />
             <TextField
-               id="valor"
+               id="valorParcela"
                label="Valor da parcela"
                type="number"
-               value={valor}
-               onChange={(event) => setValor(event.target.value)}
+               value={valorParcela}
+               onChange={(event) => setValorParcela(event.target.value)}
                size="small"
                sx={{ m: '0.3rem' }}
             />

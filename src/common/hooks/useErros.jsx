@@ -2,16 +2,16 @@ import { FormularioContext } from 'common/context/FormularioProvider';
 import { useContext } from 'react';
 
 export default function useErros() {
-   const { item, recebedor, qtParcelaTotais, formaPagamento, valor } =
+   const { item, recebedor, qtParcelasTotais, formaPagamento, valorParcela } =
       useContext(FormularioContext);
 
    const formValidado = () => {
       if (
          item === '' ||
          recebedor === '' ||
-         qtParcelaTotais <= 0 ||
+         qtParcelasTotais <= 0 ||
          formaPagamento === '' ||
-         valor <= 0
+         valorParcela <= 0
       )
          return false;
 

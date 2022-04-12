@@ -56,17 +56,19 @@ export default ({ despesa }) => {
                   <GridItem>Item : {despesa.item}</GridItem>
                   <GridItem>Recebedor : {despesa.recebedor}</GridItem>
                   <GridItem>
-                     Total Parcelas : {despesa.qtParcelaTotais}
+                     Total Parcelas : {despesa.qtParcelasTotais}
                   </GridItem>
-                  <GridItem>Total Pagas : 0</GridItem>
                   <GridItem>
-                     Form de pagamento : {despesa.formaPagamento}
+                     Valor Total Pago : {despesa.valorPago || 0}
+                  </GridItem>
+                  <GridItem>
+                     Forma de pagamento : {despesa.formaPagamento}
                   </GridItem>
                   <GridItem>Detalhes : {despesa.detalhes}</GridItem>
                   <GridItem>
                      Próx pagamento : {dateFormat(despesa.proxPagamento)}
                   </GridItem>
-                  <GridItem>Valor : {despesa.valor}</GridItem>
+                  <GridItem>Valor da Parcela: {despesa.valorParcela}</GridItem>
                </Grid>
             </DialogContentText>
          </DialogContent>

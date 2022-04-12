@@ -3,7 +3,7 @@
 		{
 			"item": "Aluguel",
 			"recebedor": "Meire",
-			"qtParcelaTotais": "9",
+			"qtParcelasTotais": "9",
 			"formaPagamento": "Pix",
 			"detalhes": "88.....",
 			"proxPagamento": "2022-04-15",
@@ -14,7 +14,7 @@
 		{
 			"item": "Fatura",
 			"recebedor": "Nubank",
-			"qtParcelaTotais": "1",
+			"qtParcelasTotais": "1",
 			"formaPagamento": "Pix",
 			"detalhes": "88....",
 			"proxPagamento": "2022-04-10",
@@ -25,7 +25,7 @@
 		{
 			"item": "Internet ",
 			"recebedor": "Clarice",
-			"qtParcelaTotais": "100",
+			"qtParcelasTotais": "100",
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-10",
@@ -36,7 +36,7 @@
 		{
 			"item": "Energia",
 			"recebedor": "Elonet",
-			"qtParcelaTotais": "1",
+			"qtParcelasTotais": "1",
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-10",
@@ -47,7 +47,7 @@
 		{
 			"item": "Feira",
 			"recebedor": "Eu",
-			"qtParcelaTotais": "100",
+			"qtParcelasTotais": "100",
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-10",
@@ -58,7 +58,7 @@
 		{
 			"item": "Móveis",
 			"recebedor": "Clarice",
-			"qtParcelaTotais": "1",
+			"qtParcelasTotais": "1",
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-10",
@@ -69,7 +69,7 @@
 		{
 			"item": "Spotify",
 			"recebedor": "Caio",
-			"qtParcelaTotais": "100",
+			"qtParcelasTotais": "100",
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-10",
@@ -80,7 +80,7 @@
 		{
 			"item": "Geladeira",
 			"recebedor": "Wellygnton",
-			"qtParcelaTotais": "3",
+			"qtParcelasTotais": "3",
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-30",
@@ -91,7 +91,7 @@
 		{
 			"item": "Alura",
 			"recebedor": "Matheus",
-			"qtParcelaTotais": "100",
+			"qtParcelasTotais": "100",
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-15",

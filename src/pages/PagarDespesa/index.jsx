@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { buscar } from 'api';
 import Layout from 'components/Layout';
 import { H3 } from 'components/typography/H3';
-import { todayDate, getNextMonth } from 'common/utils/Datas';
+import { todayDate, getNextMonth, getMonth } from 'common/utils/Datas';
 import styled from 'styled-components';
 import Loading from 'components/Loading';
 
@@ -37,18 +37,14 @@ export default function PagarDespesa() {
    const [valorPago, setValorPago] = useState(0);
    const [isLoading, setIsLoading] = useState(true);
 
-   useEffect(() => {
-      const findDespesa = async () => {
-         const despesa = await buscar(`pagar/${id}`);
-         setFoundDespesa(despesa);
-         const proxPagamento = getNextMonth(despesa.proxPagamento);
-         setProxPagamento(proxPagamento);
-         setValorPago(despesa.valor);
+   useEffect(async () => {
+      const despesa = await buscar(`pagar/${id}`);
+      setFoundDespesa(despesa);
+      setValorPago(despesa.valorParcela);
+      const proxPagamento = getNextMonth(despesa.proxPagamento);
+      setProxPagamento(proxPagamento);
 
-         setIsLoading(false);
-      };
-
-      findDespesa();
+      setIsLoading(false);
    }, []);
 
    const limparForm = () => {
@@ -58,6 +54,10 @@ export default function PagarDespesa() {
 
    const pagarDespesa = async (event) => {
       event.preventDefault();
+      const mesPagamento = getMonth(proxPagamento);
+      const qtParcelasPagas = foundDespesa.qtParcelasPagas
+         ? foundDespesa.qtParcelasPagas + 1
+         : 1;
 
       const status = await editar(
          {
@@ -65,6 +65,8 @@ export default function PagarDespesa() {
             valorPago,
             ...foundDespesa,
             proxPagamento,
+            mesPagamento,
+            qtParcelasPagas,
          },
          id
       );
@@ -77,7 +79,15 @@ export default function PagarDespesa() {
    };
 
    if (isLoading) {
-      return <Loading />;
+      return (
+         <Layout>
+            <Loading
+               style={{
+                  height: '100%',
+               }}
+            />
+         </Layout>
+      );
    }
    return (
       <Layout>

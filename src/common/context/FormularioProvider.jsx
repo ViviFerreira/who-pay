@@ -7,11 +7,11 @@ FormularioContext.displayName = 'Formulário';
 export default function FormularioProvider({ children }) {
    const [item, setItem] = useState('');
    const [recebedor, setRecebedor] = useState('');
-   const [qtParcelaTotais, setQtParcelaTotais] = useState('');
+   const [qtParcelasTotais, setqtParcelasTotais] = useState('');
    const [formaPagamento, setFormaPagamento] = useState('Pix');
    const [detalhes, setDetalhes] = useState('');
    const [proxPagamento, setProxPagamento] = useState(todayDate);
-   const [valor, setValor] = useState(0);
+   const [valorParcela, setValorParcela] = useState(0);
    const [id, setId] = useState('');
 
    return (
@@ -19,19 +19,19 @@ export default function FormularioProvider({ children }) {
          value={{
             item,
             recebedor,
-            qtParcelaTotais,
+            qtParcelasTotais,
             formaPagamento,
             detalhes,
             proxPagamento,
-            valor,
+            valorParcela,
             id,
             setItem,
             setRecebedor,
-            setQtParcelaTotais,
+            setqtParcelasTotais,
             setFormaPagamento,
             setDetalhes,
             setProxPagamento,
-            setValor,
+            setValorParcela,
             setId,
          }}
       >

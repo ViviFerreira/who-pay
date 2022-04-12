@@ -3,27 +3,26 @@ import { FormularioContext } from 'common/context/FormularioProvider';
 import { DespesaContext } from 'common/context/DespesasProvider';
 import { ModalContext } from 'common/context/ModalProvider';
 import { cadastrar, buscar, editar } from 'api';
-import { todayDate } from 'common/utils/Datas';
+import { todayDate, getMonth } from 'common/utils/Datas';
 import { toast } from 'react-toastify';
-import { getMonth } from 'common/utils/Datas';
 
 export default function useDespesaContext() {
    const {
       item,
       recebedor,
-      qtParcelaTotais,
+      qtParcelasTotais,
       formaPagamento,
       detalhes,
       proxPagamento,
-      valor,
+      valorParcela,
       id,
       setItem,
       setRecebedor,
-      setQtParcelaTotais,
+      setqtParcelasTotais,
       setFormaPagamento,
       setDetalhes,
       setProxPagamento,
-      setValor,
+      setValorParcela,
       setId,
    } = useContext(FormularioContext);
 
@@ -34,28 +33,28 @@ export default function useDespesaContext() {
    const limparForm = () => {
       setItem('');
       setRecebedor('');
-      setQtParcelaTotais('');
+      setqtParcelasTotais('');
       setFormaPagamento('Pix');
       setDetalhes('');
       setProxPagamento(todayDate);
-      setValor(0);
+      setValorParcela(0);
    };
 
    const loadDespesa = (despesa) => {
       setItem(despesa.item);
       setRecebedor(despesa.recebedor);
-      setQtParcelaTotais(despesa.qtParcelaTotais);
+      setqtParcelasTotais(despesa.qtParcelasTotais);
       setFormaPagamento(despesa.formaPagamento);
       setDetalhes(despesa.detalhes);
       setProxPagamento(despesa.proxPagamento);
-      setValor(despesa.valor);
+      setValorParcela(despesa.valorParcela);
       setId(despesa.id);
 
       handleClose();
    };
 
    const buscarDespesas = async () => {
-      setListaDespesas(await buscar('/pagar', setListaDespesas));
+      setListaDespesas(await buscar('/pagar'));
    };
 
    const handleForm = async (event) => {
@@ -64,11 +63,11 @@ export default function useDespesaContext() {
       const objDespesa = {
          item,
          recebedor,
-         qtParcelaTotais,
+         qtParcelasTotais,
          formaPagamento,
          detalhes,
          proxPagamento,
-         valor,
+         valorParcela,
          mesPagamento,
       };
 

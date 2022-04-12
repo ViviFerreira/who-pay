@@ -40,7 +40,10 @@ export default function ListaDespesa() {
                         .filter((despesa) => despesa.mesPagamento === mes)
                         .map((despesa) => (
                            <ModalProvider key={despesa.id}>
-                              <CardDespesa despesa={despesa} />
+                              {despesa.qtParcelasTotais !=
+                                 despesa?.qtParcelasPagas && (
+                                 <CardDespesa despesa={despesa} />
+                              )}
                            </ModalProvider>
                         ))}
                   </BoxDespesa>
