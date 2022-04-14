@@ -1,46 +1,57 @@
 {
   "pagar": [
     {
-      "ultimoPagamento": "2022-04-10",
-      "valorPago": "450",
+      "ultimoPagamento": "2022-04-14",
+      "valorPago": "400",
       "item": "Fatura",
-      "recebedor": "Nu",
-      "qtParcelasTotais": "100",
+      "recebedor": "Nubank",
+      "qtParcelasTotais": "2",
       "formaPagamento": "Outra",
       "detalhes": "",
-      "proxPagamento": "2022-06-10",
+      "proxPagamento": "2022-08-10",
       "valorParcela": "400",
-      "mesPagamento": 6,
+      "mesPagamento": 8,
       "id": 1,
-      "qtParcelasPagas": 100
+      "qtParcelasPagas": 2
     },
     {
-      "ultimoPagamento": "2022-04-11",
+      "ultimoPagamento": "2022-04-14",
+      "valorPago": "50",
+      "item": "Geladeira",
+      "recebedor": "Welto",
+      "qtParcelasTotais": "2",
+      "formaPagamento": "Pix",
+      "detalhes": "8888888888",
+      "proxPagamento": null,
+      "valorParcela": "50",
+      "mesPagamento": null,
+      "id": 2,
+      "qtParcelasPagas": 2
+    },
+    {
+      "ultimoPagamento": "2022-04-14",
       "valorPago": "50",
       "item": "teste",
       "recebedor": "teste",
-      "qtParcelasTotais": "4",
-      "formaPagamento": "Pix",
-      "detalhes": "",
-      "proxPagamento": "2022-11-11",
-      "valorParcela": "50",
-      "mesPagamento": 11,
-      "id": 2,
-      "qtParcelasPagas": 1
-    },
-    {
-      "ultimoPagamento": "2022-04-11",
-      "valorPago": "2",
-      "item": "teste1",
-      "recebedor": "teste1",
       "qtParcelasTotais": "2",
       "formaPagamento": "Pix",
       "detalhes": "",
-      "proxPagamento": "2022-06-11",
-      "valorParcela": "2",
-      "mesPagamento": 6,
+      "proxPagamento": "Data inválida",
+      "valorParcela": "50",
+      "mesPagamento": null,
       "id": 3,
       "qtParcelasPagas": 2
+    },
+    {
+      "item": "teste",
+      "recebedor": "teste",
+      "qtParcelasTotais": "2",
+      "formaPagamento": "Pix",
+      "detalhes": "",
+      "proxPagamento": "2022-04-14",
+      "valorParcela": "500",
+      "mesPagamento": 4,
+      "id": 4
     }
   ]
 }

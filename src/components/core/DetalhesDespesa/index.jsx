@@ -56,7 +56,9 @@ export default ({ despesa }) => {
                   <GridItem>Item : {despesa.item}</GridItem>
                   <GridItem>Recebedor : {despesa.recebedor}</GridItem>
                   <GridItem>
-                     Total Parcelas : {despesa.qtParcelasTotais}
+                     Parcela :{' '}
+                     {despesa.qtParcelasPagas ? despesa.qtParcelasPagas + 1 : 1}
+                     /{despesa.qtParcelasTotais}
                   </GridItem>
                   <GridItem>
                      Valor Total Pago : {despesa.valorPago || 0}

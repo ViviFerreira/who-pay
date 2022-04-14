@@ -9,4 +9,5 @@
 ## Próximas tarefas
 
 - [ ] Não permitir edição depois do primeiro pagamento
-- [ ] Remover despesa quando a quantidade de parcelas totais e pagas forem iguais
+- [x] Remover despesa quando a quantidade de parcelas totais e pagas forem iguais
+- [] Não deixar pagar quanto a quantide de parcelas totais for igual as pagas

@@ -1,14 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { TextField, Button } from '@mui/material';
-import { editar } from 'api';
-import { ToastContainer, toast } from 'react-toastify';
-import { buscar } from 'api';
+import { ToastContainer } from 'react-toastify';
 import Layout from 'components/Layout';
 import { H3 } from 'components/typography/H3';
-import { todayDate, getNextMonth, getMonth } from 'common/utils/Datas';
 import styled from 'styled-components';
 import Loading from 'components/Loading';
+import usePagamento from 'common/hooks/usePagamento';
+import { Alert } from '@mui/material';
 
 export const FormContainer = styled.div`
    width: 35%;
@@ -22,61 +19,22 @@ export const FormContainer = styled.div`
       width: 90%;
       margin: 0.5rem auto;
    }
-
-   .btn-grid {
-      grid-column-start: 2;
-      grid-column-end: 3;
-   }
 `;
 
 export default function PagarDespesa() {
-   let { id } = useParams();
-   const [foundDespesa, setFoundDespesa] = useState({});
-   const [dataPagamento, setDataPagamento] = useState(todayDate);
-   const [proxPagamento, setProxPagamento] = useState('');
-   const [valorPago, setValorPago] = useState(0);
-   const [isLoading, setIsLoading] = useState(true);
-
-   useEffect(async () => {
-      const despesa = await buscar(`pagar/${id}`);
-      setFoundDespesa(despesa);
-      setValorPago(despesa.valorParcela);
-      const proxPagamento = getNextMonth(despesa.proxPagamento);
-      setProxPagamento(proxPagamento);
-
-      setIsLoading(false);
-   }, []);
-
-   const limparForm = () => {
-      setDataPagamento(todayDate);
-      setValorPago(0);
-   };
-
-   const pagarDespesa = async (event) => {
-      event.preventDefault();
-      const mesPagamento = getMonth(proxPagamento);
-      const qtParcelasPagas = foundDespesa.qtParcelasPagas
-         ? foundDespesa.qtParcelasPagas + 1
-         : 1;
-
-      const status = await editar(
-         {
-            ultimoPagamento: dataPagamento,
-            valorPago,
-            ...foundDespesa,
-            proxPagamento,
-            mesPagamento,
-            qtParcelasPagas,
-         },
-         id
-      );
-
-      status === 200 || status === 201
-         ? toast.success('Você pagou essa despesa')
-         : toast.error('Erro ao pagar despesa');
-
-      limparForm();
-   };
+   const {
+      pagarDespesa,
+      isLoading,
+      foundDespesa,
+      dataPagamento,
+      valorPago,
+      proxPagamento,
+      setDataPagamento,
+      setValorPago,
+      setProxPagamento,
+      ultimoPagamento,
+      despesaQuitada,
+   } = usePagamento();
 
    if (isLoading) {
       return (
@@ -132,25 +90,44 @@ export default function PagarDespesa() {
                size="small"
                sx={{ m: '0.3rem' }}
             />
-            <TextField
-               id="proxPagamento"
-               label="Próxima pagamento em"
-               type="date"
-               value={proxPagamento}
-               onChange={(event) => setProxPagamento(event.target.value)}
-               size="small"
-               sx={{ m: '0.3rem' }}
-            />
+            {!ultimoPagamento ||
+               (!despesaQuitada && (
+                  <TextField
+                     id="proxPagamento"
+                     label="Próxima pagamento em"
+                     type="date"
+                     value={proxPagamento}
+                     onChange={(event) => setProxPagamento(event.target.value)}
+                     size="small"
+                     sx={{ m: '0.3rem' }}
+                  />
+               ))}
             <Button
                variant="contained"
-               className="btn-custom btn-grid"
+               className="btn-custom"
                sx={{ m: '0.3rem' }}
                onClick={(e) => pagarDespesa(e)}
-               disabled={proxPagamento === '' || proxPagamento === ''}
+               disabled={
+                  proxPagamento === '' || proxPagamento === '' || despesaQuitada
+               }
             >
                Pagar
             </Button>
          </FormContainer>
+         {despesaQuitada && (
+            <Alert
+               severity="success"
+               variant="outlined"
+               style={{
+                  justifySelf: 'start',
+                  marginLeft: '2rem',
+                  marginTop: '1rem',
+                  width: '50%',
+               }}
+            >
+               Ótimo, você quitou essa despesa!
+            </Alert>
+         )}
          <ToastContainer autoClose={1500} />
       </Layout>
    );

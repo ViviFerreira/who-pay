@@ -30,7 +30,7 @@ export default function useDespesaContext() {
 
    const { handleClose } = useContext(ModalContext);
 
-   const limparForm = () => {
+   const restartForm = () => {
       setItem('');
       setRecebedor('');
       setqtParcelasTotais('');
@@ -87,7 +87,7 @@ export default function useDespesaContext() {
          setId('');
       }
 
-      limparForm();
+      restartForm();
       buscarDespesas();
    };
 

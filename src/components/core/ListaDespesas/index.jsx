@@ -1,24 +1,43 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { DespesaContext } from 'common/context/DespesasProvider';
 import useDespesaContext from 'common/hooks/useDespesaContext';
 import CardDespesa from 'components/core/CardDespesa';
-import { getNameMonth } from 'common/utils/Datas';
+import { getNameMonth, todayDate, getNameMonthDate } from 'common/utils/Datas';
 import { H4 } from 'components/typography/H4';
 import { BoxDespesa, ContainerDespesas } from './style';
 import { Alert } from '@mui/material';
 import ModalProvider from 'common/context/ModalProvider';
+import Loading from 'components/Loading';
 
 export default function ListaDespesa() {
    const { listaDespesas } = useContext(DespesaContext);
    const { buscarDespesas } = useDespesaContext();
+   const [isLoading, setIsLoading] = useState(true);
 
-   useEffect(() => {
-      buscarDespesas();
+   useEffect(async () => {
+      await buscarDespesas();
+      setIsLoading(false);
    }, []);
 
    const mesesPagamento = [
-      ...new Set(listaDespesas.map((despesa) => despesa.mesPagamento)),
+      ...new Set(
+         listaDespesas
+            .filter(
+               (despesa) => despesa.qtParcelasTotais != despesa?.qtParcelasPagas
+            )
+            .map((despesa) => despesa.mesPagamento)
+      ),
    ].sort();
+
+   if (isLoading) {
+      return (
+         <Loading
+            style={{
+               marginTop: '5rem',
+            }}
+         />
+      );
+   }
 
    return (
       <ContainerDespesas>
@@ -34,7 +53,9 @@ export default function ListaDespesa() {
                            paddingBottom: '0.5rem',
                         }}
                      >
-                        Em {getNameMonth(mes)}
+                        {getNameMonthDate(todayDate) === getNameMonth(mes)
+                           ? 'Este mês'
+                           : `Em ${getNameMonth(mes)}`}
                      </H4>
                      {listaDespesas
                         .filter((despesa) => despesa.mesPagamento === mes)

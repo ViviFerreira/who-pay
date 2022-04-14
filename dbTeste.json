@@ -7,7 +7,7 @@
 			"formaPagamento": "Pix",
 			"detalhes": "88.....",
 			"proxPagamento": "2022-04-15",
-			"valor": "250",
+			"valorParcela": "250",
 			"mesPagamento": 4,
 			"id": 1
 		},
@@ -18,7 +18,7 @@
 			"formaPagamento": "Pix",
 			"detalhes": "88....",
 			"proxPagamento": "2022-04-10",
-			"valor": "400",
+			"valorParcela": "400",
 			"mesPagamento": 4,
 			"id": 2
 		},
@@ -29,7 +29,7 @@
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-10",
-			"valor": "50",
+			"valorParcela": "50",
 			"mesPagamento": 4,
 			"id": 3
 		},
@@ -40,7 +40,7 @@
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-10",
-			"valor": "60",
+			"valorParcela": "60",
 			"mesPagamento": 4,
 			"id": 4
 		},
@@ -51,7 +51,7 @@
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-10",
-			"valor": "150",
+			"valorParcela": "150",
 			"mesPagamento": 4,
 			"id": 5
 		},
@@ -62,7 +62,7 @@
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-10",
-			"valor": "110",
+			"valorParcela": "110",
 			"mesPagamento": 4,
 			"id": 6
 		},
@@ -73,7 +73,7 @@
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-10",
-			"valor": "8.5",
+			"valorParcela": "8.5",
 			"mesPagamento": 4,
 			"id": 7
 		},
@@ -84,7 +84,7 @@
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-30",
-			"valor": "50",
+			"valorParcela": "50",
 			"mesPagamento": 4,
 			"id": 8
 		},
@@ -95,7 +95,7 @@
 			"formaPagamento": "Pix",
 			"detalhes": "",
 			"proxPagamento": "2022-04-15",
-			"valor": "21",
+			"valorParcela": "21",
 			"mesPagamento": 4,
 			"id": 9
 		}
