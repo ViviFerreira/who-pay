@@ -46,7 +46,7 @@ export default () => {
    );
    const navigate = useNavigate();
    const { open, handleClose } = useContext(ModalContext);
-   const { loadDespesa } = useDespesaContext();
+   const { loadDespesa, excluirDespesa } = useDespesaContext();
 
    return (
       <Dialog
@@ -92,12 +92,12 @@ export default () => {
                Editar
             </Button>
             <Button
-               onClick={handleClose}
+               onClick={() => excluirDespesa()}
                variant="contained"
                sx={{ background: colorRed }}
                size="small"
             >
-               Fechar
+               Excluir
             </Button>
             <Button
                onClick={() => navigate(`/pagar`)}
@@ -106,6 +106,14 @@ export default () => {
                size="small"
             >
                Paguei
+            </Button>
+            <Button
+               onClick={handleClose}
+               variant="contained"
+               sx={{ background: colorRed }}
+               size="small"
+            >
+               Fechar
             </Button>
          </DialogActions>
       </Dialog>

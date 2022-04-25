@@ -26,3 +26,11 @@ export const editar = async (values, id) => {
       return error;
    }
 };
+export const excluir = async (id) => {
+   try {
+      const { status } = await api.delete(`/pagar/${id}`);
+      return status;
+   } catch (error) {
+      return error;
+   }
+};

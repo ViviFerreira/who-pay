@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { FormularioContext } from 'common/context/FormularioProvider';
 import { DespesaContext } from 'common/context/DespesasProvider';
 import { ModalContext } from 'common/context/ModalProvider';
-import { cadastrar, buscar, editar } from 'api';
+import { cadastrar, buscar, editar, excluir } from 'api';
 import { todayDate, getMonth } from 'common/utils/Datas';
 import { toast } from 'react-toastify';
 import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
@@ -96,8 +96,18 @@ export default function useDespesaContext() {
       }
 
       restartForm();
-      buscarDespesas();
       setDespesaSelecionada('');
+      buscarDespesas();
+   };
+
+   const excluirDespesa = async () => {
+      const status = await excluir(despesa.id);
+      status === 200 || status === 201
+         ? toast.success('Sua despesa foi excluida')
+         : toast.error('Erro ao excluir despesa');
+
+      setDespesaSelecionada('');
+      buscarDespesas();
    };
 
    const actionBtnForm = !id ? 'Cadastrar' : 'Editar';
@@ -108,6 +118,7 @@ export default function useDespesaContext() {
    return {
       buscarDespesas,
       handleForm,
+      excluirDespesa,
       loadDespesa,
       actionBtnForm,
       tituloForm,
