@@ -5,6 +5,7 @@ import { ModalContext } from 'common/context/ModalProvider';
 import { cadastrar, buscar, editar } from 'api';
 import { todayDate, getMonth } from 'common/utils/Datas';
 import { toast } from 'react-toastify';
+import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
 
 export default function useDespesaContext() {
    const {
@@ -28,6 +29,10 @@ export default function useDespesaContext() {
 
    const { setListaDespesas } = useContext(DespesaContext);
 
+   const { despesaSelecionada: despesa, setDespesaSelecionada } = useContext(
+      DespesaSelecionadaContext
+   );
+
    const { handleClose } = useContext(ModalContext);
 
    const restartForm = () => {
@@ -40,7 +45,7 @@ export default function useDespesaContext() {
       setValorParcela(0);
    };
 
-   const loadDespesa = (despesa) => {
+   const loadDespesa = () => {
       setItem(despesa.item);
       setRecebedor(despesa.recebedor);
       setqtParcelasTotais(despesa.qtParcelasTotais);
@@ -60,14 +65,17 @@ export default function useDespesaContext() {
    const handleForm = async (event) => {
       event.preventDefault();
       const mesPagamento = getMonth(proxPagamento);
+      const vrParcela = parseFloat(valorParcela);
+
       const objDespesa = {
+         ...despesa,
          item,
          recebedor,
          qtParcelasTotais,
          formaPagamento,
          detalhes,
          proxPagamento,
-         valorParcela,
+         valorParcela: vrParcela,
          mesPagamento,
       };
 
@@ -89,6 +97,7 @@ export default function useDespesaContext() {
 
       restartForm();
       buscarDespesas();
+      setDespesaSelecionada('');
    };
 
    const actionBtnForm = !id ? 'Cadastrar' : 'Editar';

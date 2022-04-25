@@ -3,6 +3,7 @@ import { colorBlue, colorWhite } from 'components/IU/variaveis';
 import styled from 'styled-components';
 import DetalhesDespesa from 'components/core/DetalhesDespesa';
 import { ModalContext } from 'common/context/ModalProvider';
+import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
 
 const CardDespesa = styled.div`
    display: flex;
@@ -37,17 +38,23 @@ const Badge = styled.div`
 `;
 
 export default ({ despesa }) => {
+   const { defineDespesa } = useContext(DespesaSelecionadaContext);
    const { handleClickOpen } = useContext(ModalContext);
+
+   const handleCardDespesa = () => {
+      defineDespesa(despesa);
+      handleClickOpen();
+   };
 
    return (
       <>
-         <CardDespesa onClick={handleClickOpen}>
+         <CardDespesa onClick={handleCardDespesa}>
             <div>{despesa.item}</div>
             <div>
                <Badge>{despesa.recebedor}</Badge>
             </div>
          </CardDespesa>
-         <DetalhesDespesa despesa={despesa} />
+         <DetalhesDespesa />
       </>
    );
 };

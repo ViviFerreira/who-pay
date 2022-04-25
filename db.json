@@ -1,57 +1,40 @@
 {
   "pagar": [
     {
-      "ultimoPagamento": "2022-04-14",
-      "valorPago": "400",
+      "item": "Alura",
+      "recebedor": "Matheus",
+      "qtParcelasTotais": "100",
+      "formaPagamento": "Pix",
+      "detalhes": "889865545",
+      "proxPagamento": "2022-06-05",
+      "valorParcela": "21",
+      "mesPagamento": 6,
+      "id": 1
+    },
+    {
       "item": "Fatura",
       "recebedor": "Nubank",
-      "qtParcelasTotais": "2",
-      "formaPagamento": "Outra",
-      "detalhes": "",
+      "qtParcelasTotais": "100",
+      "formaPagamento": "Pix",
+      "detalhes": "88981413430",
       "proxPagamento": "2022-08-10",
-      "valorParcela": "400",
+      "valorParcela": "450",
       "mesPagamento": 8,
-      "id": 1,
-      "qtParcelasPagas": 2
-    },
-    {
-      "ultimoPagamento": "2022-04-14",
-      "valorPago": "50",
-      "item": "Geladeira",
-      "recebedor": "Welto",
-      "qtParcelasTotais": "2",
-      "formaPagamento": "Pix",
-      "detalhes": "8888888888",
-      "proxPagamento": null,
-      "valorParcela": "50",
-      "mesPagamento": null,
       "id": 2,
-      "qtParcelasPagas": 2
+      "ultimoPagamento": "2022-04-24",
+      "valorPago": 1350,
+      "qtParcelasPagas": 3
     },
     {
-      "ultimoPagamento": "2022-04-14",
-      "valorPago": "50",
-      "item": "teste",
+      "item": "Teste",
       "recebedor": "teste",
-      "qtParcelasTotais": "2",
+      "qtParcelasTotais": "5",
       "formaPagamento": "Pix",
       "detalhes": "",
-      "proxPagamento": "Data inválida",
-      "valorParcela": "50",
-      "mesPagamento": null,
-      "id": 3,
-      "qtParcelasPagas": 2
-    },
-    {
-      "item": "teste",
-      "recebedor": "teste",
-      "qtParcelasTotais": "2",
-      "formaPagamento": "Pix",
-      "detalhes": "",
-      "proxPagamento": "2022-04-14",
-      "valorParcela": "500",
+      "proxPagamento": "2022-04-24",
+      "valorParcela": 50,
       "mesPagamento": 4,
-      "id": 4
+      "id": 3
     }
   ]
 }

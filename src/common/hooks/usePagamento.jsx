@@ -1,27 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { toast } from 'react-toastify';
-import { useParams } from 'react-router-dom';
 import { editar } from 'api';
-import { buscar } from 'api';
+import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
 import { todayDate, getNextMonth, getMonth } from 'common/utils/Datas';
 
 export default function usePagamento() {
-   let { id } = useParams();
-   const [foundDespesa, setFoundDespesa] = useState({});
+   const { despesaSelecionada: despesa, setDespesaSelecionada } = useContext(
+      DespesaSelecionadaContext
+   );
    const [dataPagamento, setDataPagamento] = useState(todayDate);
    const [proxPagamento, setProxPagamento] = useState('');
    const [valorPago, setValorPago] = useState(0);
    const [isLoading, setIsLoading] = useState(true);
 
-   useEffect(async () => {
-      const despesa = await buscar(`pagar/${id}`);
-      setFoundDespesa(despesa);
+   useEffect(() => {
       setValorPago(despesa.valorParcela);
       const proxPagamento = !ultimoPagamento
          ? getNextMonth(despesa.proxPagamento)
          : null;
       setProxPagamento(proxPagamento);
-
       setIsLoading(false);
    }, []);
 
@@ -31,28 +28,30 @@ export default function usePagamento() {
    };
 
    const ultimoPagamento =
-      foundDespesa.qtParcelasTotais == foundDespesa?.qtParcelasPagas + 1;
-
-   const despesaQuitada =
-      foundDespesa.qtParcelasTotais == foundDespesa?.qtParcelasPagas;
+      despesa.qtParcelasTotais == despesa?.qtParcelasPagas + 1 ||
+      despesa.qtParcelasTotais == 1;
 
    const pagarDespesa = async (event) => {
       event.preventDefault();
       const mesPagamento = getMonth(proxPagamento);
-      let qtParcelasPagas = foundDespesa.qtParcelasPagas
-         ? foundDespesa.qtParcelasPagas + 1
+      let qtParcelasPagas = despesa.qtParcelasPagas
+         ? despesa.qtParcelasPagas + 1
          : 1;
+
+      const valorTotalPago = despesa.valorPago
+         ? parseFloat(despesa.valorPago) + parseFloat(valorPago)
+         : valorPago;
 
       const status = await editar(
          {
+            ...despesa,
             ultimoPagamento: dataPagamento,
-            valorPago,
-            ...foundDespesa,
+            valorPago: valorTotalPago,
             proxPagamento,
             mesPagamento,
             qtParcelasPagas,
          },
-         id
+         despesa.id
       );
 
       status === 200 || status === 201
@@ -60,12 +59,13 @@ export default function usePagamento() {
          : toast.error('Erro ao pagar despesa');
 
       restartForm();
+      setTimeout(() => setDespesaSelecionada(''), 2000);
    };
 
    return {
       pagarDespesa,
       isLoading,
-      foundDespesa,
+      despesa,
       dataPagamento,
       valorPago,
       proxPagamento,
@@ -73,6 +73,5 @@ export default function usePagamento() {
       setValorPago,
       setProxPagamento,
       ultimoPagamento,
-      despesaQuitada,
    };
 }

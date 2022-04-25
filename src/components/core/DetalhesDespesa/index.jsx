@@ -19,12 +19,17 @@ import { dateFormat } from 'common/utils/Datas';
 import { ModalContext } from 'common/context/ModalProvider';
 import useDespesaContext from 'common/hooks/useDespesaContext';
 import { useNavigate } from 'react-router-dom';
+import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
 
 const Grid = styled.div`
    display: grid;
    grid-template-columns: repeat(2, auto);
    grid-template-rows: repeat(7, auto);
    justify-items: center;
+
+   @media only screen and (max-width: 764px) {
+      grid-template-columns: repeat(1, auto);
+   }
 `;
 
 const GridItem = styled.div`
@@ -35,7 +40,10 @@ const GridItem = styled.div`
    color: ${colorDark};
 `;
 
-export default ({ despesa }) => {
+export default () => {
+   const { despesaSelecionada: despesa } = useContext(
+      DespesaSelecionadaContext
+   );
    const navigate = useNavigate();
    const { open, handleClose } = useContext(ModalContext);
    const { loadDespesa } = useDespesaContext();
@@ -53,30 +61,30 @@ export default ({ despesa }) => {
          <DialogContent>
             <DialogContentText id="alert-dialog-description">
                <Grid>
-                  <GridItem>Item : {despesa.item}</GridItem>
-                  <GridItem>Recebedor : {despesa.recebedor}</GridItem>
+                  <GridItem>Item - {despesa.item}</GridItem>
+                  <GridItem>Recebedor - {despesa.recebedor}</GridItem>
                   <GridItem>
-                     Parcela :{' '}
+                     Parcela -{' '}
                      {despesa.qtParcelasPagas ? despesa.qtParcelasPagas + 1 : 1}
                      /{despesa.qtParcelasTotais}
                   </GridItem>
                   <GridItem>
-                     Valor Total Pago : {despesa.valorPago || 0}
+                     Valor Total Pago - {despesa.valorPago || 0}
                   </GridItem>
                   <GridItem>
-                     Forma de pagamento : {despesa.formaPagamento}
+                     Forma de pagamento - {despesa.formaPagamento}
                   </GridItem>
-                  <GridItem>Detalhes : {despesa.detalhes}</GridItem>
+                  <GridItem>Detalhes - {despesa.detalhes}</GridItem>
                   <GridItem>
-                     Próx pagamento : {dateFormat(despesa.proxPagamento)}
+                     Próx pagamento - {dateFormat(despesa.proxPagamento)}
                   </GridItem>
-                  <GridItem>Valor da Parcela: {despesa.valorParcela}</GridItem>
+                  <GridItem>Valor da Parcela - {despesa.valorParcela}</GridItem>
                </Grid>
             </DialogContentText>
          </DialogContent>
          <DialogActions>
             <Button
-               onClick={() => loadDespesa(despesa)}
+               onClick={() => loadDespesa()}
                variant="contained"
                sx={{ background: colorBlue }}
                size="small"
@@ -92,7 +100,7 @@ export default ({ despesa }) => {
                Fechar
             </Button>
             <Button
-               onClick={() => navigate(`/pagar/${despesa.id}`)}
+               onClick={() => navigate(`/pagar`)}
                variant="contained"
                sx={{ background: colorGreen }}
                size="small"

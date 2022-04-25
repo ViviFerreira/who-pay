@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { TextField, Button } from '@mui/material';
 import { ToastContainer } from 'react-toastify';
 import Layout from 'components/Layout';
@@ -10,6 +11,7 @@ import { Alert } from '@mui/material';
 export const FormContainer = styled.div`
    width: 35%;
    height: 30%;
+   min-width: 30rem;
    display: grid;
    grid-template-columns: auto auto;
    align-items: center;
@@ -25,7 +27,7 @@ export default function PagarDespesa() {
    const {
       pagarDespesa,
       isLoading,
-      foundDespesa,
+      despesa,
       dataPagamento,
       valorPago,
       proxPagamento,
@@ -35,6 +37,8 @@ export default function PagarDespesa() {
       ultimoPagamento,
       despesaQuitada,
    } = usePagamento();
+
+   const navigate = useNavigate();
 
    if (isLoading) {
       return (
@@ -47,6 +51,11 @@ export default function PagarDespesa() {
          </Layout>
       );
    }
+
+   if (!despesa) {
+      navigate('/despesas');
+   }
+
    return (
       <Layout>
          <H3>Pagar despesa</H3>
@@ -54,7 +63,7 @@ export default function PagarDespesa() {
             <TextField
                id="despesa"
                label="Despesa"
-               value={`${foundDespesa.item}`}
+               value={`${despesa.item}`}
                size="small"
                sx={{ m: '0.3rem' }}
                InputProps={{
@@ -65,7 +74,7 @@ export default function PagarDespesa() {
                id="recebedor"
                label="Quem devo pagar"
                type="text"
-               value={`${foundDespesa.recebedor}`}
+               value={`${despesa.recebedor}`}
                size="small"
                sx={{ m: '0.3rem' }}
                InputProps={{
@@ -90,44 +99,27 @@ export default function PagarDespesa() {
                size="small"
                sx={{ m: '0.3rem' }}
             />
-            {!ultimoPagamento ||
-               (!despesaQuitada && (
-                  <TextField
-                     id="proxPagamento"
-                     label="Próxima pagamento em"
-                     type="date"
-                     value={proxPagamento}
-                     onChange={(event) => setProxPagamento(event.target.value)}
-                     size="small"
-                     sx={{ m: '0.3rem' }}
-                  />
-               ))}
+            {!ultimoPagamento && !despesaQuitada && (
+               <TextField
+                  id="proxPagamento"
+                  label="Próxima pagamento em"
+                  type="date"
+                  value={proxPagamento}
+                  onChange={(event) => setProxPagamento(event.target.value)}
+                  size="small"
+                  sx={{ m: '0.3rem' }}
+               />
+            )}
             <Button
                variant="contained"
                className="btn-custom"
                sx={{ m: '0.3rem' }}
                onClick={(e) => pagarDespesa(e)}
-               disabled={
-                  proxPagamento === '' || proxPagamento === '' || despesaQuitada
-               }
+               disabled={proxPagamento === '' || proxPagamento === ''}
             >
                Pagar
             </Button>
          </FormContainer>
-         {despesaQuitada && (
-            <Alert
-               severity="success"
-               variant="outlined"
-               style={{
-                  justifySelf: 'start',
-                  marginLeft: '2rem',
-                  marginTop: '1rem',
-                  width: '50%',
-               }}
-            >
-               Ótimo, você quitou essa despesa!
-            </Alert>
-         )}
          <ToastContainer autoClose={1500} />
       </Layout>
    );

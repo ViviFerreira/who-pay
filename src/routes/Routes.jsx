@@ -9,6 +9,6 @@ export default () => (
       <Route path="/" element={<Home />} />
       <Route path="*" element={<Pagina404 />} />
       <Route path="/despesas" element={<Despesas />} />
-      <Route path="/pagar/:id" element={<PagarDespesa />} />
+      <Route path="/pagar" element={<PagarDespesa />} />
    </Routes>
 );
