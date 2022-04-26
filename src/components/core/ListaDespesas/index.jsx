@@ -1,17 +1,17 @@
 import { useContext, useEffect, useState } from 'react';
+import { Alert } from '@mui/material';
 import { DespesaContext } from 'common/context/DespesasProvider';
-import useDespesaContext from 'common/hooks/useDespesaContext';
+import useCrudDespesa from 'common/hooks/useCrudDespesa';
 import CardDespesa from 'components/core/CardDespesa';
 import { getNameMonth, todayDate, getNameMonthDate } from 'common/utils/Datas';
 import { H4 } from 'components/typography/H4';
 import { BoxDespesa, ContainerDespesas } from './style';
-import { Alert } from '@mui/material';
 import ModalProvider from 'common/context/ModalProvider';
 import Loading from 'components/Loading';
 
 export default function ListaDespesa() {
    const { listaDespesas } = useContext(DespesaContext);
-   const { buscarDespesas } = useDespesaContext();
+   const { buscarDespesas } = useCrudDespesa();
    const [isLoading, setIsLoading] = useState(true);
 
    useEffect(async () => {

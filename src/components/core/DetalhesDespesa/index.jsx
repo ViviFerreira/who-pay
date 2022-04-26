@@ -1,12 +1,7 @@
-import styled from 'styled-components';
 import { useContext } from 'react';
-import {
-   colorLight,
-   colorDark,
-   colorBlue,
-   colorRed,
-   colorGreen,
-} from 'components/IU/variaveis';
+import { GrFormClose } from 'react-icons/gr';
+import { colorBlue, colorRed, colorGreen } from 'components/IU/variaveis';
+import { Grid, GridItem } from './style';
 import {
    Button,
    Dialog,
@@ -20,33 +15,14 @@ import { ModalContext } from 'common/context/ModalProvider';
 import useDespesaContext from 'common/hooks/useDespesaContext';
 import { useNavigate } from 'react-router-dom';
 import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
-
-const Grid = styled.div`
-   display: grid;
-   grid-template-columns: repeat(2, auto);
-   grid-template-rows: repeat(7, auto);
-   justify-items: center;
-
-   @media only screen and (max-width: 764px) {
-      grid-template-columns: repeat(1, auto);
-   }
-`;
-
-const GridItem = styled.div`
-   width: 100%;
-   padding: 0.5rem;
-   background-color: ${colorLight};
-   margin: 0.5rem;
-   color: ${colorDark};
-`;
+import useCrudDespesa from 'common/hooks/useCrudDespesa';
 
 export default () => {
-   const { despesaSelecionada: despesa } = useContext(
-      DespesaSelecionadaContext
-   );
+   const { despesaSelecionada } = useContext(DespesaSelecionadaContext);
    const navigate = useNavigate();
    const { open, handleClose } = useContext(ModalContext);
-   const { loadDespesa, excluirDespesa } = useDespesaContext();
+   const { loadDespesa } = useDespesaContext();
+   const { excluirDespesa } = useCrudDespesa();
 
    return (
       <Dialog
@@ -55,30 +31,44 @@ export default () => {
          aria-labelledby="alert-dialog-title"
          aria-describedby="alert-dialog-description"
       >
-         <DialogTitle id="alert-dialog-title">
+         <DialogTitle
+            id="alert-dialog-title"
+            sx={{ display: 'flex', justifyContent: 'space-between' }}
+         >
             Detalhes desse pagamento
+            <GrFormClose
+               onClick={handleClose}
+               style={{ fontSize: '1.8rem', cursor: 'pointer' }}
+            />
          </DialogTitle>
          <DialogContent>
             <DialogContentText id="alert-dialog-description">
                <Grid>
-                  <GridItem>Item - {despesa.item}</GridItem>
-                  <GridItem>Recebedor - {despesa.recebedor}</GridItem>
+                  <GridItem>Item - {despesaSelecionada.item}</GridItem>
+                  <GridItem>
+                     Recebedor - {despesaSelecionada.recebedor}
+                  </GridItem>
                   <GridItem>
                      Parcela -{' '}
-                     {despesa.qtParcelasPagas ? despesa.qtParcelasPagas + 1 : 1}
-                     /{despesa.qtParcelasTotais}
+                     {despesaSelecionada.qtParcelasPagas
+                        ? despesaSelecionada.qtParcelasPagas + 1
+                        : 1}
+                     /{despesaSelecionada.qtParcelasTotais}
                   </GridItem>
                   <GridItem>
-                     Valor Total Pago - {despesa.valorPago || 0}
+                     Valor Total Pago - {despesaSelecionada.valorPago || 0}
                   </GridItem>
                   <GridItem>
-                     Forma de pagamento - {despesa.formaPagamento}
+                     Forma de pagamento - {despesaSelecionada.formaPagamento}
                   </GridItem>
-                  <GridItem>Detalhes - {despesa.detalhes}</GridItem>
+                  <GridItem>Detalhes - {despesaSelecionada.detalhes}</GridItem>
                   <GridItem>
-                     Próx pagamento - {dateFormat(despesa.proxPagamento)}
+                     Próx pagamento -{' '}
+                     {dateFormat(despesaSelecionada.proxPagamento)}
                   </GridItem>
-                  <GridItem>Valor da Parcela - {despesa.valorParcela}</GridItem>
+                  <GridItem>
+                     Valor da Parcela - {despesaSelecionada.valorParcela}
+                  </GridItem>
                </Grid>
             </DialogContentText>
          </DialogContent>
@@ -92,7 +82,7 @@ export default () => {
                Editar
             </Button>
             <Button
-               onClick={() => excluirDespesa()}
+               onClick={() => excluirDespesa(despesaSelecionada.id)}
                variant="contained"
                sx={{ background: colorRed }}
                size="small"
@@ -106,14 +96,6 @@ export default () => {
                size="small"
             >
                Paguei
-            </Button>
-            <Button
-               onClick={handleClose}
-               variant="contained"
-               sx={{ background: colorRed }}
-               size="small"
-            >
-               Fechar
             </Button>
          </DialogActions>
       </Dialog>

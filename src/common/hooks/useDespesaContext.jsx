@@ -1,13 +1,13 @@
 import { useContext } from 'react';
-import { FormularioContext } from 'common/context/FormularioProvider';
-import { DespesaContext } from 'common/context/DespesasProvider';
-import { ModalContext } from 'common/context/ModalProvider';
-import { cadastrar, buscar, editar, excluir } from 'api';
 import { todayDate, getMonth } from 'common/utils/Datas';
-import { toast } from 'react-toastify';
+import { FormularioContext } from 'common/context/FormularioProvider';
+import { ModalContext } from 'common/context/ModalProvider';
 import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
+import useCrudDespesa from 'common/hooks/useCrudDespesa';
 
 export default function useDespesaContext() {
+   const { cadastrarDespesa, buscarDespesas, editarDespesa } = useCrudDespesa();
+
    const {
       item,
       recebedor,
@@ -27,9 +27,7 @@ export default function useDespesaContext() {
       setId,
    } = useContext(FormularioContext);
 
-   const { setListaDespesas } = useContext(DespesaContext);
-
-   const { despesaSelecionada: despesa, setDespesaSelecionada } = useContext(
+   const { despesaSelecionada, setDespesaSelecionada } = useContext(
       DespesaSelecionadaContext
    );
 
@@ -46,81 +44,45 @@ export default function useDespesaContext() {
    };
 
    const loadDespesa = () => {
-      setItem(despesa.item);
-      setRecebedor(despesa.recebedor);
-      setqtParcelasTotais(despesa.qtParcelasTotais);
-      setFormaPagamento(despesa.formaPagamento);
-      setDetalhes(despesa.detalhes);
-      setProxPagamento(despesa.proxPagamento);
-      setValorParcela(despesa.valorParcela);
-      setId(despesa.id);
+      setItem(despesaSelecionada.item);
+      setRecebedor(despesaSelecionada.recebedor);
+      setqtParcelasTotais(despesaSelecionada.qtParcelasTotais);
+      setFormaPagamento(despesaSelecionada.formaPagamento);
+      setDetalhes(despesaSelecionada.detalhes);
+      setProxPagamento(despesaSelecionada.proxPagamento);
+      setValorParcela(despesaSelecionada.valorParcela);
+      setId(despesaSelecionada.id);
 
       handleClose();
    };
 
-   const buscarDespesas = async () => {
-      setListaDespesas(await buscar('/pagar'));
-   };
-
-   const handleForm = async (event) => {
-      event.preventDefault();
-      const mesPagamento = getMonth(proxPagamento);
-      const vrParcela = parseFloat(valorParcela);
-
-      const objDespesa = {
-         ...despesa,
+   const handleForm = async () => {
+      const novaDespesa = {
+         ...despesaSelecionada,
          item,
          recebedor,
          qtParcelasTotais,
          formaPagamento,
          detalhes,
          proxPagamento,
-         valorParcela: vrParcela,
-         mesPagamento,
+         valorParcela: parseFloat(valorParcela),
+         mesPagamento: getMonth(proxPagamento),
       };
 
       if (!id) {
-         const status = await cadastrar({ ...objDespesa });
-
-         status === 200 || status === 201
-            ? toast.success('Sua despesa foi cadastrada')
-            : toast.error('Erro ao cadastrar sua despesa');
+         await cadastrarDespesa(novaDespesa);
       } else {
-         const status = await editar({ ...objDespesa }, id);
-
-         status === 200 || status === 201
-            ? toast.success('Sua despesa foi alterada')
-            : toast.error('Erro ao alterar sua despesa');
-
+         await editarDespesa(novaDespesa, despesaSelecionada.id);
          setId('');
+         setDespesaSelecionada('');
       }
 
       restartForm();
-      setDespesaSelecionada('');
       buscarDespesas();
    };
-
-   const excluirDespesa = async () => {
-      const status = await excluir(despesa.id);
-      status === 200 || status === 201
-         ? toast.success('Sua despesa foi excluida')
-         : toast.error('Erro ao excluir despesa');
-
-      setDespesaSelecionada('');
-      buscarDespesas();
-   };
-
-   const actionBtnForm = !id ? 'Cadastrar' : 'Editar';
-   const tituloForm = !id
-      ? 'Registrar nova conta a pagar'
-      : 'Editar conta a pagar';
 
    return {
-      buscarDespesas,
       handleForm,
-      excluirDespesa,
       loadDespesa,
-      actionBtnForm,
-      tituloForm,
    };
 }

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { TextField, MenuItem, Button } from '@mui/material';
+import 'react-toastify/dist/ReactToastify.css';
 import { FormDespesa, FormContainer } from 'components/core/FormDespesa/style';
 import { FormularioContext } from 'common/context/FormularioProvider';
 import useDespesaContext from 'common/hooks/useDespesaContext';
@@ -16,6 +16,7 @@ export default () => {
       detalhes,
       proxPagamento,
       valorParcela,
+      id,
       setItem,
       setRecebedor,
       setqtParcelasTotais,
@@ -25,7 +26,7 @@ export default () => {
       setValorParcela,
    } = useContext(FormularioContext);
 
-   const { handleForm, actionBtnForm } = useDespesaContext();
+   const { handleForm } = useDespesaContext();
    const { formValidado } = useErros();
 
    return (
@@ -108,10 +109,10 @@ export default () => {
                variant="contained"
                className="btn-custom"
                sx={{ m: '0.3rem' }}
-               onClick={(e) => handleForm(e)}
+               onClick={() => handleForm()}
                disabled={!formValidado()}
             >
-               {actionBtnForm}
+               {!id ? 'Cadastrar' : 'Editar'}
             </Button>
          </FormContainer>
          <ToastContainer autoClose={1500} />

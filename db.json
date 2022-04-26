@@ -13,6 +13,31 @@
       "ultimoPagamento": "2022-04-25",
       "valorPago": 600,
       "qtParcelasPagas": 1
+    },
+    {
+      "item": "Fatura",
+      "recebedor": "Nubank",
+      "qtParcelasTotais": "5",
+      "formaPagamento": "Pix",
+      "detalhes": "88981413430",
+      "proxPagamento": "2022-09-10",
+      "valorParcela": 500,
+      "mesPagamento": 9,
+      "id": 2,
+      "ultimoPagamento": "2022-04-25",
+      "valorPago": 2000,
+      "qtParcelasPagas": 4
+    },
+    {
+      "item": "Móveis",
+      "recebedor": "Clarice",
+      "qtParcelasTotais": "1",
+      "formaPagamento": "Pix",
+      "detalhes": "88981030277",
+      "proxPagamento": "2022-05-10",
+      "valorParcela": 110,
+      "mesPagamento": 5,
+      "id": 3
     }
   ]
 }

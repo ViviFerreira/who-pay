@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 export const DespesaSelecionadaContext = createContext();
 DespesaSelecionadaContext.displayName = 'Despesa Selecionada';
 
-export default function DespesasProvider({ children }) {
+export default function DespesaSelecionadaProvider({ children }) {
    const [despesaSelecionada, setDespesaSelecionada] = useState('');
 
    const defineDespesa = (despesa) => {

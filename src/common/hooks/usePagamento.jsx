@@ -5,7 +5,7 @@ import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProv
 import { todayDate, getNextMonth, getMonth } from 'common/utils/Datas';
 
 export default function usePagamento() {
-   const { despesaSelecionada: despesa, setDespesaSelecionada } = useContext(
+   const { despesaSelecionada, setDespesaSelecionada } = useContext(
       DespesaSelecionadaContext
    );
    const [dataPagamento, setDataPagamento] = useState(todayDate);
@@ -13,10 +13,15 @@ export default function usePagamento() {
    const [valorPago, setValorPago] = useState(0);
    const [isLoading, setIsLoading] = useState(true);
 
+   const ultimoPagamento =
+      despesaSelecionada.qtParcelasTotais ==
+         despesaSelecionada?.qtParcelasPagas + 1 ||
+      despesaSelecionada.qtParcelasTotais == 1;
+
    useEffect(() => {
-      setValorPago(despesa.valorParcela);
+      setValorPago(despesaSelecionada.valorParcela);
       const proxPagamento = !ultimoPagamento
-         ? getNextMonth(despesa.proxPagamento)
+         ? getNextMonth(despesaSelecionada.proxPagamento)
          : null;
       setProxPagamento(proxPagamento);
       setIsLoading(false);
@@ -27,31 +32,26 @@ export default function usePagamento() {
       setValorPago(0);
    };
 
-   const ultimoPagamento =
-      despesa.qtParcelasTotais == despesa?.qtParcelasPagas + 1 ||
-      despesa.qtParcelasTotais == 1;
-
-   const pagarDespesa = async (event) => {
-      event.preventDefault();
+   const pagarDespesa = async () => {
       const mesPagamento = getMonth(proxPagamento);
-      let qtParcelasPagas = despesa.qtParcelasPagas
-         ? despesa.qtParcelasPagas + 1
+      let qtParcelasPagas = despesaSelecionada.qtParcelasPagas
+         ? despesaSelecionada.qtParcelasPagas + 1
          : 1;
 
-      const valorTotalPago = despesa.valorPago
-         ? parseFloat(despesa.valorPago) + parseFloat(valorPago)
+      const valorTotalPago = despesaSelecionada.valorPago
+         ? parseFloat(despesaSelecionada.valorPago) + parseFloat(valorPago)
          : valorPago;
 
       const status = await editar(
          {
-            ...despesa,
+            ...despesaSelecionada,
             ultimoPagamento: dataPagamento,
             valorPago: valorTotalPago,
             proxPagamento,
             mesPagamento,
             qtParcelasPagas,
          },
-         despesa.id
+         despesaSelecionada.id
       );
 
       status === 200 || status === 201
@@ -65,7 +65,7 @@ export default function usePagamento() {
    return {
       pagarDespesa,
       isLoading,
-      despesa,
+      despesaSelecionada,
       dataPagamento,
       valorPago,
       proxPagamento,

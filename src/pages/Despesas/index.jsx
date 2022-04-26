@@ -1,16 +1,19 @@
+import { useContext } from 'react';
 import Layout from 'components/Layout';
 import FormDespesa from 'components/core/FormDespesa';
 import ListaDespesas from 'components/core/ListaDespesas';
 import { ContainerFlex } from './style';
 import { H3 } from 'components/typography/H3';
-import useDespesaContext from 'common/hooks/useDespesaContext';
+import { FormularioContext } from 'common/context/FormularioProvider';
 
 export default function Despesas() {
-   const { tituloForm } = useDespesaContext();
+   const { id } = useContext(FormularioContext);
 
    return (
       <Layout>
-         <H3>{tituloForm}</H3>
+         <H3>
+            {!id ? 'Registrar nova conta a pagar' : 'Editar conta a pagar'}
+         </H3>
          <ContainerFlex>
             <FormDespesa />
          </ContainerFlex>

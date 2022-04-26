@@ -6,7 +6,6 @@ import { H3 } from 'components/typography/H3';
 import styled from 'styled-components';
 import Loading from 'components/Loading';
 import usePagamento from 'common/hooks/usePagamento';
-import { Alert } from '@mui/material';
 
 export const FormContainer = styled.div`
    width: 35%;
@@ -27,7 +26,7 @@ export default function PagarDespesa() {
    const {
       pagarDespesa,
       isLoading,
-      despesa,
+      despesaSelecionada,
       dataPagamento,
       valorPago,
       proxPagamento,
@@ -52,7 +51,7 @@ export default function PagarDespesa() {
       );
    }
 
-   if (!despesa) {
+   if (!despesaSelecionada) {
       navigate('/despesas');
    }
 
@@ -61,9 +60,9 @@ export default function PagarDespesa() {
          <H3>Pagar despesa</H3>
          <FormContainer>
             <TextField
-               id="despesa"
+               id="despesaSelecionada"
                label="Despesa"
-               value={`${despesa.item}`}
+               value={`${despesaSelecionada.item}`}
                size="small"
                sx={{ m: '0.3rem' }}
                InputProps={{
@@ -74,7 +73,7 @@ export default function PagarDespesa() {
                id="recebedor"
                label="Quem devo pagar"
                type="text"
-               value={`${despesa.recebedor}`}
+               value={`${despesaSelecionada.recebedor}`}
                size="small"
                sx={{ m: '0.3rem' }}
                InputProps={{
@@ -114,7 +113,7 @@ export default function PagarDespesa() {
                variant="contained"
                className="btn-custom"
                sx={{ m: '0.3rem' }}
-               onClick={(e) => pagarDespesa(e)}
+               onClick={() => pagarDespesa()}
                disabled={proxPagamento === '' || proxPagamento === ''}
             >
                Pagar
