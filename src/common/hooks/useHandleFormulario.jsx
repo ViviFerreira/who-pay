@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { todayDate, getMonth } from 'common/utils/Datas';
-import { FormularioContext } from 'common/context/FormularioProvider';
-import { ModalContext } from 'common/context/ModalProvider';
-import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
+import { FormularioContext } from 'common/context/Formulario';
+import { ModalContext } from 'common/context/Modal';
+import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionada';
 import useCrudDespesa from 'common/hooks/useCrudDespesa';
 
 export default function useDespesaContext() {
@@ -82,7 +82,7 @@ export default function useDespesaContext() {
    };
 
    return {
-      handleForm,
       loadDespesa,
+      handleForm,
    };
 }

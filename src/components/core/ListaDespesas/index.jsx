@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { Alert } from '@mui/material';
-import { DespesaContext } from 'common/context/DespesasProvider';
+import { DespesaContext } from 'common/context/ListaDespesas';
 import useCrudDespesa from 'common/hooks/useCrudDespesa';
 import CardDespesa from 'components/core/CardDespesa';
 import { getNameMonth, todayDate, getNameMonthDate } from 'common/utils/Datas';
 import { H4 } from 'components/typography/H4';
 import { BoxDespesa, ContainerDespesas } from './style';
-import ModalProvider from 'common/context/ModalProvider';
+import ModalProvider from 'common/context/Modal';
 import Loading from 'components/Loading';
 
 export default function ListaDespesa() {
@@ -76,7 +76,9 @@ export default function ListaDespesa() {
                variant="outlined"
                style={{ justifySelf: 'start', marginLeft: '2rem' }}
             >
-               Você ainda não possui nenhuma despesa cadastrada!
+               {listaDespesas.length > 0
+                  ? 'Nenhuma despesa em aberto'
+                  : 'Você ainda não possui nenhuma despesa cadastrada'}
             </Alert>
          )}
       </ContainerDespesas>

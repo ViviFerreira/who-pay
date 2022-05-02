@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { cadastrar, buscar, editar, excluir } from 'api';
 import { toast } from 'react-toastify';
-import { DespesaContext } from 'common/context/DespesasProvider';
+import { DespesaContext } from 'common/context/ListaDespesas';
 
 export default function useCrudDespesa() {
    const { setListaDespesas } = useContext(DespesaContext);

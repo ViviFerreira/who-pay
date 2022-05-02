@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { CardDespesa, Badge } from './style';
 import DetalhesDespesa from 'components/core/DetalhesDespesa';
-import { ModalContext } from 'common/context/ModalProvider';
-import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
+import { ModalContext } from 'common/context/Modal';
+import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionada';
 
 export default ({ despesa }) => {
    const { defineDespesa } = useContext(DespesaSelecionadaContext);

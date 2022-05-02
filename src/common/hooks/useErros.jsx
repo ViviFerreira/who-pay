@@ -1,4 +1,4 @@
-import { FormularioContext } from 'common/context/FormularioProvider';
+import { FormularioContext } from 'common/context/Formulario';
 import { useContext } from 'react';
 
 export default function useErros() {

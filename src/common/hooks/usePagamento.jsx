@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { toast } from 'react-toastify';
 import { editar } from 'api';
-import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
+import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionada';
 import { todayDate, getNextMonth, getMonth } from 'common/utils/Datas';
 
 export default function usePagamento() {

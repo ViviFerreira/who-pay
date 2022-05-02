@@ -20,13 +20,13 @@
       "qtParcelasTotais": "5",
       "formaPagamento": "Pix",
       "detalhes": "88981413430",
-      "proxPagamento": "2022-09-10",
+      "proxPagamento": null,
       "valorParcela": 500,
-      "mesPagamento": 9,
+      "mesPagamento": null,
       "id": 2,
       "ultimoPagamento": "2022-04-25",
-      "valorPago": 2000,
-      "qtParcelasPagas": 4
+      "valorPago": 2500,
+      "qtParcelasPagas": 5
     },
     {
       "item": "Móveis",
@@ -34,10 +34,41 @@
       "qtParcelasTotais": "1",
       "formaPagamento": "Pix",
       "detalhes": "88981030277",
-      "proxPagamento": "2022-05-10",
+      "proxPagamento": null,
       "valorParcela": 110,
-      "mesPagamento": 5,
-      "id": 3
+      "mesPagamento": null,
+      "id": 3,
+      "ultimoPagamento": "2022-04-25",
+      "valorPago": 110,
+      "qtParcelasPagas": 1
+    },
+    {
+      "item": "Teste",
+      "recebedor": "teste",
+      "qtParcelasTotais": "2",
+      "formaPagamento": "Pix",
+      "detalhes": "teste",
+      "proxPagamento": "2022-06-25",
+      "valorParcela": 100,
+      "mesPagamento": 6,
+      "id": 4,
+      "ultimoPagamento": "2022-04-25",
+      "valorPago": 200,
+      "qtParcelasPagas": 2
+    },
+    {
+      "item": "Fatura",
+      "recebedor": "Nubank",
+      "qtParcelasTotais": "2",
+      "formaPagamento": "Pix",
+      "detalhes": "88981413430",
+      "proxPagamento": "2022-07-10",
+      "valorParcela": 400,
+      "mesPagamento": 7,
+      "id": 5,
+      "ultimoPagamento": "2022-04-26",
+      "valorPago": 800,
+      "qtParcelasPagas": 2
     }
   ]
 }

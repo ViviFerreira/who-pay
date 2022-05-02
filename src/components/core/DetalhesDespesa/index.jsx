@@ -11,10 +11,10 @@ import {
    DialogActions,
 } from '@mui/material';
 import { dateFormat } from 'common/utils/Datas';
-import { ModalContext } from 'common/context/ModalProvider';
-import useDespesaContext from 'common/hooks/useDespesaContext';
+import { ModalContext } from 'common/context/Modal';
+import useDespesaContext from 'common/hooks/useHandleFormulario';
 import { useNavigate } from 'react-router-dom';
-import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionadaProvider';
+import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionada';
 import useCrudDespesa from 'common/hooks/useCrudDespesa';
 
 export default () => {
@@ -33,7 +33,11 @@ export default () => {
       >
          <DialogTitle
             id="alert-dialog-title"
-            sx={{ display: 'flex', justifyContent: 'space-between' }}
+            sx={{
+               display: 'flex',
+               justifyContent: 'space-between',
+               alignItems: 'center',
+            }}
          >
             Detalhes desse pagamento
             <GrFormClose

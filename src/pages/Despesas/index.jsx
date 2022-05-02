@@ -4,7 +4,8 @@ import FormDespesa from 'components/core/FormDespesa';
 import ListaDespesas from 'components/core/ListaDespesas';
 import { ContainerFlex } from './style';
 import { H3 } from 'components/typography/H3';
-import { FormularioContext } from 'common/context/FormularioProvider';
+import { FormularioContext } from 'common/context/Formulario';
+import DespesasProvider from 'common/context/ListaDespesas';
 
 export default function Despesas() {
    const { id } = useContext(FormularioContext);
