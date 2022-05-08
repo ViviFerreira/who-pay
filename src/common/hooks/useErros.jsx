@@ -18,5 +18,7 @@ export default function useErros() {
       return true;
    };
 
-   return { formValidado };
+   const validated = formValidado();
+
+   return { validated };
 }

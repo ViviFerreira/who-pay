@@ -1,7 +1,7 @@
 import Layout from 'components/Layout';
 import { H3 } from 'components/typography/H3';
 import { P } from 'components/typography/P';
-import { Button } from '@mui/material';
+import Button from 'components/Button';
 
 export default function Home() {
    return (
@@ -19,7 +19,7 @@ export default function Home() {
             saber as suas despesas em aberto.
          </P>
 
-         <Button variant="contained">Comecar</Button>
+         <Button style={{ m: '2rem' }}>Comecar</Button>
       </Layout>
    );
 }

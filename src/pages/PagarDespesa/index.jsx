@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { TextField, Button } from '@mui/material';
+import { TextField } from '@mui/material';
 import { ToastContainer } from 'react-toastify';
 import Layout from 'components/Layout';
 import { H3 } from 'components/typography/H3';
 import styled from 'styled-components';
 import Loading from 'components/Loading';
 import usePagamento from 'common/hooks/usePagamento';
+import Button from 'components/Button';
 
 export const FormContainer = styled.div`
    width: 35%;
@@ -38,6 +39,15 @@ export default function PagarDespesa() {
    } = usePagamento();
 
    const navigate = useNavigate();
+
+   const formValidado = () => {
+      if (proxPagamento === '' || proxPagamento === '' || valorPago <= 0)
+         return false;
+
+      return true;
+   };
+
+   const validated = formValidado();
 
    if (isLoading) {
       return (
@@ -110,11 +120,9 @@ export default function PagarDespesa() {
                />
             )}
             <Button
-               variant="contained"
-               className="btn-custom"
-               sx={{ m: '0.3rem' }}
-               onClick={() => pagarDespesa()}
-               disabled={proxPagamento === '' || proxPagamento === ''}
+               handle={pagarDespesa}
+               style={{ m: '0.3rem' }}
+               validated={validated}
             >
                Pagar
             </Button>

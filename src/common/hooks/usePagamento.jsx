@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { toast } from 'react-toastify';
-import { editar } from 'api';
+import { addOrEditDespesa } from 'services/FirebaseService';
 import { DespesaSelecionadaContext } from 'common/context/DespesaSelecionada';
 import { todayDate, getNextMonth, getMonth } from 'common/utils/Datas';
 
@@ -33,7 +33,8 @@ export default function usePagamento() {
    };
 
    const pagarDespesa = async () => {
-      const mesPagamento = getMonth(proxPagamento);
+      const mesPagamento = !ultimoPagamento ? getMonth(proxPagamento) : null;
+
       let qtParcelasPagas = despesaSelecionada.qtParcelasPagas
          ? despesaSelecionada.qtParcelasPagas + 1
          : 1;
@@ -42,7 +43,7 @@ export default function usePagamento() {
          ? parseFloat(despesaSelecionada.valorPago) + parseFloat(valorPago)
          : valorPago;
 
-      const status = await editar(
+      const status = await addOrEditDespesa(
          {
             ...despesaSelecionada,
             ultimoPagamento: dataPagamento,
@@ -54,7 +55,7 @@ export default function usePagamento() {
          despesaSelecionada.id
       );
 
-      status === 200 || status === 201
+      status === 200
          ? toast.success('Você pagou essa despesa')
          : toast.error('Erro ao pagar despesa');
 

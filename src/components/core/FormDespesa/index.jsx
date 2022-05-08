@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { TextField, MenuItem, Button } from '@mui/material';
+import { TextField, MenuItem } from '@mui/material';
 import 'react-toastify/dist/ReactToastify.css';
 import { FormDespesa, FormContainer } from 'components/core/FormDespesa/style';
 import { FormularioContext } from 'common/context/Formulario';
 import useDespesaContext from 'common/hooks/useHandleFormulario';
 import useErros from 'common/hooks/useErros';
+import Button from 'components/Button';
 
 export default () => {
    const {
@@ -27,7 +28,7 @@ export default () => {
    } = useContext(FormularioContext);
 
    const { handleForm } = useDespesaContext();
-   const { formValidado } = useErros();
+   const { validated } = useErros();
 
    return (
       <FormDespesa>
@@ -106,11 +107,9 @@ export default () => {
                sx={{ m: '0.3rem' }}
             />
             <Button
-               variant="contained"
-               className="btn-custom"
-               sx={{ m: '0.3rem' }}
-               onClick={() => handleForm()}
-               disabled={!formValidado()}
+               handle={handleForm}
+               validated={validated}
+               style={{ m: '0.3rem' }}
             >
                {!id ? 'Cadastrar' : 'Editar'}
             </Button>

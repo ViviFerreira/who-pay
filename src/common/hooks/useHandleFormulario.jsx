@@ -72,7 +72,7 @@ export default function useDespesaContext() {
       if (!id) {
          await cadastrarDespesa(novaDespesa);
       } else {
-         await editarDespesa(novaDespesa, despesaSelecionada.id);
+         await editarDespesa(novaDespesa);
          setId('');
          setDespesaSelecionada('');
       }

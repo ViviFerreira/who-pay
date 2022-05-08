@@ -4,6 +4,7 @@ import { fontRoboto } from '../IU/variaveis';
 export const P = styled.p`
    font-size: 1rem;
    margin-left: 1rem;
+   padding-left: 1rem;
    margin-top: 0.5rem;
    font-family: ${fontRoboto};
 

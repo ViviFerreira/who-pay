@@ -6,6 +6,8 @@
 - [x] Arrumar responsividade do menu
 - [x] No formulário é possível colocar um 0 a frente do valor
 - [ ] Rever responsividade
+- [ ] Ajustar tempo de mostrar o pup-up de sucess/erro
+- [ ] Ajustar loading da lista de despesas
 
 ## Próximas tarefas
 
@@ -13,3 +15,5 @@
 - [x] Não deixar pagar quanto a quantide de parcelas totais for igual as pagas
 - [x] Separar funçãoes de CRUD
 - [x] Refatorar providers
+- [ ] Refatorar codigo (remover repetições)
+- [ ] Otimizar useErros
