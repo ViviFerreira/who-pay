@@ -17,4 +17,4 @@
 - [x] Refatorar providers
 - [ ] Refatorar codigo (remover repetições)
 - [ ] Otimizar useErros
-- [ ] Ajustar nomes das branchs
+
